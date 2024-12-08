@@ -1,0 +1,27 @@
+[versions]
+agp = "8.2.2"
+android-compileSdk = "34"
+android-minSdk = "23"
+androidx-core = "1.15.0"
+compose-plugin = "1.6.11"
+kotlin = "2.0.21"
+kotlinx-datetime = "0.6.1"
+ktor = "2.3.11"
+okio = "3.9.0"
+skie = "0.9.3"
+urlencoder = "1.4.0"
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+skie = { id = "co.touchlab.skie", version.ref = "skie" }
+
+[libraries]
+androidx-core = { group = "androidx.core", name = "core", version.ref = "androidx-core" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
+ktor-http = { group = "io.ktor", name = "ktor-http", version.ref = "ktor" }
+okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
+urlencoder = { group =  "net.thauvin.erik.urlencoder", name = "urlencoder-lib", version.ref = "urlencoder"}
