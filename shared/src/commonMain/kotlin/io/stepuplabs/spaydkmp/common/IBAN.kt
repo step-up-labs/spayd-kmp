@@ -1,6 +1,5 @@
 package io.stepuplabs.spaydkmp.common
 
-import io.stepuplabs.spaydkmp.exception.DataException
 import io.stepuplabs.spaydkmp.formatter.Formatter
 import kotlin.math.min
 

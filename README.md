@@ -2,32 +2,35 @@
 
 Multiplatform SPAYD generator
 
-## Architecture: Idea
+# Usage
 
-The architecture will be refactored once I have any idea how this will be used and what exactly it needs to do :)
-
-Create a factory instance:
+Create Spayd instance.  The only mandatory parameter is `account`.
 
 ```kotlin
-val spayd = SpaydFactory()
+val spayd = Spayd(
+    account = Account(iban = "IBAN"),
+    alternateAccounts = listOf(
+        Account(iban = "IBAN1", bic = "BIC"),
+        Account(prefix = 0L, account = 0L, bank = 0L),
+    ),
+    amount = 100.00,
+    currency = "EUR",
+    senderReference = 666,
+    recipientName = "RECIPIENT 1",
+    date = LocalDate(2025, 1, 1),
+    paymentType = "XYZ",
+    message = "PAYMENT DESCRIPTION",
+    notification = Notification(
+        type = NotificationType.EMAIL,
+        address = "info@example.com",
+    )
+)
 ```
 
-Set all parameters necessary:
+Generate SPAYD payload that can be forwarded to bank application or used to generate QR code.
 
 ```kotlin
-spayd
-    .setAccount(iban = "IBAN", bic = "BIC")
-    .setAmount(amount = 666.00)
-    // Set the rest of parameters
+val payload = spayd.generate()
 ```
 
-If given parameter can't be used, method will throw `DataException` with short explanation as to why not
-
-Generate SPAYD:
-
-```kotlin
-val payload = spayd.create()
-// Launch bank app or generate QR code from obtained payload
-```
-
-`.create()` will return either valid SPAYD or throw `ValidationException` in case SPAYD couldn't be created
+`generate()` will also validate data and throw `ValidationException` with short message describing first problem it encountered in case there is any issue.
