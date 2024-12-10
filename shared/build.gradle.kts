@@ -47,6 +47,11 @@ kotlin {
             implementation(libs.okio)
             implementation(libs.urlencoder)
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.junit)
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlin.test.annotations)
+        }
         androidMain.dependencies {
             implementation(libs.androidx.core)
         }

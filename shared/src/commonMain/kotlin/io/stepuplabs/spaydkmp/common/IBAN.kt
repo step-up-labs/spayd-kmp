@@ -1,10 +1,11 @@
 package io.stepuplabs.spaydkmp.common
 
+import io.stepuplabs.spaydkmp.exception.ValidationException
 import io.stepuplabs.spaydkmp.formatter.Formatter
 import kotlin.math.min
 
 class IBAN {
-    @Throws(DataException::class)
+    @Throws(ValidationException::class)
     fun createForCzechAccount(prefix: Long?, account: Long, bank: Long): String {
         var isValid = false
         if (prefix != null) {
@@ -13,7 +14,7 @@ class IBAN {
         isValid = isValid && validateEleven(account)
 
         if (!isValid) {
-            throw DataException(message = "Account prefix & number: Invalid value")
+            throw ValidationException(message = "Account prefix & number: Invalid value")
         }
 
         val prefixFormatted: String = Formatter.format("%06d", prefix ?: "000000")

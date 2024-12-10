@@ -8,9 +8,9 @@ Create Spayd instance.  The only mandatory parameter is `account`.
 
 ```kotlin
 val spayd = Spayd(
-    account = Account(iban = "IBAN"),
+    account = Account(iban = "CZ7603000000000076327632"),
     alternateAccounts = listOf(
-        Account(iban = "IBAN1", bic = "BIC"),
+        Account(iban = "IBAN", bic = "BIC"),
         Account(prefix = 0L, account = 0L, bank = 0L),
     ),
     amount = 100.00,
