@@ -8,22 +8,10 @@ Create Spayd instance.  The only mandatory parameter is `account`.
 
 ```kotlin
 val spayd = Spayd(
-    account = Account(iban = "CZ7603000000000076327632"),
-    alternateAccounts = listOf(
-        Account(iban = "IBAN", bic = "BIC"),
-        Account(prefix = 0L, account = 0L, bank = 0L),
-    ),
-    amount = 100.00,
-    currency = "EUR",
-    senderReference = 666,
-    recipientName = "RECIPIENT 1",
-    date = LocalDate(2025, 1, 1),
-    paymentType = "XYZ",
-    message = "PAYMENT DESCRIPTION",
-    notification = Notification(
-        type = NotificationType.EMAIL,
-        address = "info@example.com",
-    )
+    Value(Kind.ACCOUNT, Account(iban = "IBAN")),
+    Value(Kind.AMOUNT, 666.00),
+    Value(Kind.CURRENCY, "CZK"),
+    Value(Kind.MESSAGE, "Diabolical")
 )
 ```
 
