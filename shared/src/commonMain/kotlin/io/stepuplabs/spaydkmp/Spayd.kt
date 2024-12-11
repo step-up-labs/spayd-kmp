@@ -1,6 +1,7 @@
 package io.stepuplabs.spaydkmp
 
 import io.stepuplabs.spaydkmp.common.Account
+import io.stepuplabs.spaydkmp.common.AccountList
 import io.stepuplabs.spaydkmp.common.NotificationType
 import io.stepuplabs.spaydkmp.exception.*
 import io.stepuplabs.spaydkmp.value.Kind
@@ -16,7 +17,7 @@ class Spayd(
 ) {
     constructor(
         account: Account,
-        alternateAccounts: Array<Account>? = null,
+        alternateAccounts: AccountList? = null,
         currency: String? = null,
         amount: Double? = null,
         date: LocalDate? = null,
