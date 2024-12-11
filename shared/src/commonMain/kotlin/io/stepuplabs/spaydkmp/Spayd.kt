@@ -1,5 +1,7 @@
 package io.stepuplabs.spaydkmp
 
+import io.stepuplabs.spaydkmp.common.Account
+import io.stepuplabs.spaydkmp.common.NotificationType
 import io.stepuplabs.spaydkmp.exception.*
 import io.stepuplabs.spaydkmp.value.Kind
 import io.stepuplabs.spaydkmp.value.Value
@@ -10,10 +12,47 @@ import net.thauvin.erik.urlencoder.UrlEncoderUtil
 
 @Suppress("UNUSED")
 class Spayd(
-    private vararg val values: Value
+    private vararg val values: Value?
 ) {
-    // TODO: create secondary constructor that takes numbers/strings
-    //  and create Array<Value> for the dev
+    constructor(
+        account: Account,
+        alternateAccounts: Array<Account>? = null,
+        currency: String? = null,
+        amount: Double? = null,
+        date: LocalDate? = null,
+        senderReference: Int? = null,
+        recipientName: String? = null,
+        paymentType: String? = null,
+        message: String? = null,
+        notificationType: NotificationType? = null,
+        notificationAddress: String? = null,
+        repeat: Int? = null,
+        variableSymbol: Long? = null,
+        specificSymbol: Long? = null,
+        constantSymbol: Long? = null,
+        identifier: String? = null,
+        url: String? = null,
+    ): this(
+        values = arrayOf(
+            Value(kind = Kind.ACCOUNT, value = account),
+            alternateAccounts?.let { Value(kind = Kind.ALTERNATE_ACCOUNTS, value = it) },
+            currency?.let { Value(kind = Kind.CURRENCY, value = it) },
+            amount?.let { Value(kind = Kind.AMOUNT, value = it) },
+            date?.let { Value(kind = Kind.DATE, value = it) },
+            senderReference?.let { Value(kind = Kind.SENDER_REFERENCE, value = it) },
+            recipientName?.let { Value(kind = Kind.RECIPIENT_NAME, value = it) },
+            paymentType?.let { Value(kind = Kind.PAYMENT_TYPE, value = it) },
+            message?.let { Value(kind = Kind.MESSAGE, value = it) },
+            notificationType?.let { Value(kind = Kind.NOTIFY_TYPE, value = it) },
+            notificationAddress?.let { Value(kind = Kind.NOTIFY_ADDRESS, value = it) },
+            repeat?.let { Value(kind = Kind.REPEAT, value = it) },
+            variableSymbol?.let { Value(kind = Kind.VARIABLE_SYMBOL, value = it) },
+            specificSymbol?.let { Value(kind = Kind.SPECIFIC_SYMBOL, value = it) },
+            constantSymbol?.let { Value(kind = Kind.CONSTANT_SYMBOL, value = it) },
+            identifier?.let { Value(kind = Kind.IDENTIFIER, value = it) },
+            url?.let { Value(kind = Kind.URL, value = it) },
+        )
+    )
 
     @Throws(ValidationException::class)
     fun generate(): String {
@@ -26,7 +65,7 @@ class Spayd(
         parts.add(HEADER_VERSION)
 
         // payment parameters
-        for (value in values) {
+        for (value in values.filterNotNull()) {
             getEntry(value.kind.key, value.value)?.let { parts.add(it) }
         }
 
@@ -44,11 +83,15 @@ class Spayd(
 
     @Throws(ValidationException::class)
     private fun validateValueSet() {
+        if (values.isEmpty()) {
+            throw ValidationException("At least account has to be specified")
+        }
+
         var hasAccount = false
         var hasNotificationType = false
         var hasNotificationAddress = false
 
-        for (value in values) {
+        for (value in values.filterNotNull()) {
             value.validate()
 
             when (value.kind) {
