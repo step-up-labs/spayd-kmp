@@ -52,9 +52,6 @@ kotlin {
             implementation(libs.kotlin.test)
             implementation(libs.kotlin.test.annotations)
         }
-        androidMain.dependencies {
-            implementation(libs.androidx.core)
-        }
     }
 
     withSourcesJar(publish = false) // TODO: remove for publishing, when done change build.sh
