@@ -17,7 +17,7 @@ enum class Key(
 ) {
     DATE(key = "DT", type = LocalDate::class),
     CURRENCY(key = "CC", type = String::class, minLength = 3, maxLength = 3),
-    AMOUNT(key = "AM", type = Double::class, maxValue = 9_999_999.99),
+    AMOUNT(key = "AM", type = Double::class, minValue = 0.00, maxValue = 9_999_999.99),
     ACCOUNT(key = "ACC", type = Account::class),
     ALTERNATE_ACCOUNTS(key = "ALT-ACC", type = AccountList::class, maxLength = 2),
     SENDER_REFERENCE(key = "RF", type = Int::class, maxLength = 16),
