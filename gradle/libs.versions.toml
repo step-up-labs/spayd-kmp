@@ -2,7 +2,6 @@
 agp = "8.2.2"
 android-compileSdk = "34"
 android-minSdk = "23"
-androidx-core = "1.15.0"
 compose-plugin = "1.6.11"
 kotlin = "2.0.21"
 kotlinx-datetime = "0.6.1"
@@ -20,7 +19,6 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 skie = { id = "co.touchlab.skie", version.ref = "skie" }
 
 [libraries]
-androidx-core = { group = "androidx.core", name = "core", version.ref = "androidx-core" }
 kotlin_junit = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin_test = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
 kotlin_test_annotations = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }

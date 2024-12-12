@@ -1,0 +1,3135 @@
+Name: "shared"
+Classes:
+- Name: "SharedBase"
+  SwiftName: "KotlinBase"
+- Name: "SharedMutableSet"
+  SwiftName: "KotlinMutableSet"
+- Name: "SharedMutableDictionary"
+  SwiftName: "KotlinMutableDictionary"
+- Name: "SharedNumber"
+  SwiftName: "KotlinNumber"
+- Name: "SharedByte"
+  SwiftName: "KotlinByte"
+- Name: "SharedUByte"
+  SwiftName: "KotlinUByte"
+- Name: "SharedShort"
+  SwiftName: "KotlinShort"
+- Name: "SharedUShort"
+  SwiftName: "KotlinUShort"
+- Name: "SharedInt"
+  SwiftName: "KotlinInt"
+- Name: "SharedUInt"
+  SwiftName: "KotlinUInt"
+- Name: "SharedLong"
+  SwiftName: "KotlinLong"
+- Name: "SharedULong"
+  SwiftName: "KotlinULong"
+- Name: "SharedFloat"
+  SwiftName: "KotlinFloat"
+- Name: "SharedDouble"
+  SwiftName: "KotlinDouble"
+- Name: "SharedBoolean"
+  SwiftName: "KotlinBoolean"
+- Name: "SharedKotlinCancellationException"
+  SwiftName: "KotlinCancellationException"
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "initWithMessage:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+  - Selector: "initWithMessage:cause:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:cause:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+    - Position: 1
+      Type: "SharedKotlinThrowable * _Nullable"
+  - Selector: "initWithCause:"
+    MethodKind: "Instance"
+    SwiftName: "init(cause:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinThrowable * _Nullable"
+- Name: "SharedKotlinThrowable"
+  SwiftName: "KotlinThrowable"
+  Properties:
+  - Name: "cause"
+    PropertyKind: "Instance"
+    SwiftName: "cause"
+    Type: "SharedKotlinThrowable * _Nullable"
+  - Name: "message"
+    PropertyKind: "Instance"
+    SwiftName: "message"
+    Type: "NSString * _Nullable"
+  Methods:
+  - Selector: "initWithMessage:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+  - Selector: "initWithCause:"
+    MethodKind: "Instance"
+    SwiftName: "init(cause:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinThrowable * _Nullable"
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "initWithMessage:cause:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:cause:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+    - Position: 1
+      Type: "SharedKotlinThrowable * _Nullable"
+  - Selector: "getStackTrace"
+    MethodKind: "Instance"
+    SwiftName: "getStackTrace()"
+    ResultType: "SharedKotlinArray<NSString *> * _Nonnull"
+  - Selector: "printStackTrace"
+    MethodKind: "Instance"
+    SwiftName: "printStackTrace()"
+    ResultType: "void"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedKotlinArray"
+  SwiftName: "KotlinArray"
+  Properties:
+  - Name: "size"
+    PropertyKind: "Instance"
+    SwiftName: "size"
+    Type: "int32_t"
+  Methods:
+  - Selector: "arrayWithSize:init:"
+    MethodKind: "Instance"
+    SwiftName: "init(size:init:)"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "T _Nullable (^ _Nonnull)(SharedInt * _Nonnull)"
+  - Selector: "getIndex:"
+    MethodKind: "Instance"
+    SwiftName: "get(index:)"
+    ResultType: "T _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "iterator"
+    MethodKind: "Instance"
+    SwiftName: "iterator()"
+    ResultType: "id<SharedKotlinIterator> _Nonnull"
+  - Selector: "setIndex:value:"
+    MethodKind: "Instance"
+    SwiftName: "set(index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "T _Nullable"
+- Name: "SharedKotlinIllegalStateException"
+  SwiftName: "KotlinIllegalStateException"
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "initWithMessage:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+  - Selector: "initWithMessage:cause:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:cause:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+    - Position: 1
+      Type: "SharedKotlinThrowable * _Nullable"
+  - Selector: "initWithCause:"
+    MethodKind: "Instance"
+    SwiftName: "init(cause:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinThrowable * _Nullable"
+- Name: "SharedKotlinRuntimeException"
+  SwiftName: "KotlinRuntimeException"
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "initWithMessage:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+  - Selector: "initWithMessage:cause:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:cause:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+    - Position: 1
+      Type: "SharedKotlinThrowable * _Nullable"
+  - Selector: "initWithCause:"
+    MethodKind: "Instance"
+    SwiftName: "init(cause:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinThrowable * _Nullable"
+- Name: "SharedKotlinException"
+  SwiftName: "KotlinException"
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "initWithMessage:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+  - Selector: "initWithMessage:cause:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:cause:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+    - Position: 1
+      Type: "SharedKotlinThrowable * _Nullable"
+  - Selector: "initWithCause:"
+    MethodKind: "Instance"
+    SwiftName: "init(cause:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinThrowable * _Nullable"
+- Name: "SharedKotlinPair"
+  SwiftName: "KotlinPair"
+  Properties:
+  - Name: "first"
+    PropertyKind: "Instance"
+    SwiftName: "first"
+    Type: "A _Nullable"
+  - Name: "second"
+    PropertyKind: "Instance"
+    SwiftName: "second"
+    Type: "B _Nullable"
+  Methods:
+  - Selector: "initWithFirst:second:"
+    MethodKind: "Instance"
+    SwiftName: "init(first:second:)"
+    Parameters:
+    - Position: 0
+      Type: "A _Nullable"
+    - Position: 1
+      Type: "B _Nullable"
+  - Selector: "doCopyFirst:second:"
+    MethodKind: "Instance"
+    SwiftName: "doCopy(first:second:)"
+    ResultType: "SharedKotlinPair<A, B> * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "A _Nullable"
+    - Position: 1
+      Type: "B _Nullable"
+  - Selector: "equalsOther:"
+    MethodKind: "Instance"
+    SwiftName: "equals(other:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hashCode"
+    MethodKind: "Instance"
+    SwiftName: "hashCode()"
+    ResultType: "int32_t"
+  - Selector: "toString"
+    MethodKind: "Instance"
+    SwiftName: "toString()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedKotlinEnum"
+  SwiftName: "KotlinEnum"
+  Properties:
+  - Name: "name"
+    PropertyKind: "Instance"
+    SwiftName: "name"
+    Type: "NSString * _Nonnull"
+  - Name: "ordinal"
+    PropertyKind: "Instance"
+    SwiftName: "ordinal"
+    Type: "int32_t"
+  Methods:
+  - Selector: "initWithName:ordinal:"
+    MethodKind: "Instance"
+    SwiftName: "init(name:ordinal:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "compareToOther:"
+    MethodKind: "Instance"
+    SwiftName: "compareTo(other:)"
+    ResultType: "int32_t"
+    Parameters:
+    - Position: 0
+      Type: "E _Nonnull"
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedKotlinEnumCompanion"
+  SwiftName: "KotlinEnumCompanion"
+- Name: "SharedKotlinNothing"
+  SwiftName: "KotlinNothing"
+- Name: "SharedKotlinCharArray"
+  SwiftName: "KotlinCharArray"
+  Properties:
+  - Name: "size"
+    PropertyKind: "Instance"
+    SwiftName: "size"
+    Type: "int32_t"
+  Methods:
+  - Selector: "arrayWithSize:"
+    MethodKind: "Instance"
+    SwiftName: "init(size:)"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "arrayWithSize:init:"
+    MethodKind: "Instance"
+    SwiftName: "init(size:init:)"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "id _Nonnull (^ _Nonnull)(SharedInt * _Nonnull)"
+  - Selector: "getIndex:"
+    MethodKind: "Instance"
+    SwiftName: "get(index:)"
+    ResultType: "unichar"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "iterator"
+    MethodKind: "Instance"
+    SwiftName: "iterator()"
+    ResultType: "SharedKotlinCharIterator * _Nonnull"
+  - Selector: "setIndex:value:"
+    MethodKind: "Instance"
+    SwiftName: "set(index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "unichar"
+- Name: "SharedKotlinCharIterator"
+  SwiftName: "KotlinCharIterator"
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "next"
+    MethodKind: "Instance"
+    SwiftName: "next()"
+    ResultType: "id _Nonnull"
+  - Selector: "nextChar"
+    MethodKind: "Instance"
+    SwiftName: "nextChar()"
+    ResultType: "unichar"
+- Name: "SharedSkieColdFlowIterator"
+  SwiftName: "SkieColdFlowIterator"
+  SwiftPrivate: true
+  Methods:
+  - Selector: "initWithFlow:"
+    MethodKind: "Instance"
+    SwiftName: "init(flow:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlow> _Nonnull"
+  - Selector: "cancel"
+    MethodKind: "Instance"
+    SwiftName: "cancel()"
+    ResultType: "void"
+  - Selector: "hasNextWithCompletionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__hasNext(completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "void (^ _Nonnull)(SharedBoolean * _Nullable, NSError * _Nullable)"
+  - Selector: "next"
+    MethodKind: "Instance"
+    SwiftName: "next()"
+    ResultType: "E _Nullable"
+- Name: "SharedSkieKotlinFlow"
+  SwiftBridge: "SkieSwiftFlow"
+  SwiftName: "SkieKotlinFlow"
+  SwiftPrivate: true
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedSkieKotlinMutableSharedFlow"
+  SwiftBridge: "SkieSwiftMutableSharedFlow"
+  SwiftName: "SkieKotlinMutableSharedFlow"
+  SwiftPrivate: true
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<T> * _Nonnull"
+  - Name: "subscriptionCount"
+    PropertyKind: "Instance"
+    SwiftName: "subscriptionCount"
+    Type: "SharedSkieKotlinStateFlow<SharedInt *> * _Nonnull"
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreMutableSharedFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "emitValue:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__emit(value:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "T _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "resetReplayCache"
+    MethodKind: "Instance"
+    SwiftName: "resetReplayCache()"
+    ResultType: "void"
+  - Selector: "tryEmitValue:"
+    MethodKind: "Instance"
+    SwiftName: "tryEmit(value:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "T _Nonnull"
+- Name: "SharedSkieKotlinMutableStateFlow"
+  SwiftBridge: "SkieSwiftMutableStateFlow"
+  SwiftName: "SkieKotlinMutableStateFlow"
+  SwiftPrivate: true
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<T> * _Nonnull"
+  - Name: "subscriptionCount"
+    PropertyKind: "Instance"
+    SwiftName: "subscriptionCount"
+    Type: "SharedSkieKotlinStateFlow<SharedInt *> * _Nonnull"
+  - Name: "value"
+    PropertyKind: "Instance"
+    SwiftName: "value"
+    Type: "T _Nonnull"
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreMutableStateFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "compareAndSetExpect:update:"
+    MethodKind: "Instance"
+    SwiftName: "compareAndSet(expect:update:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "T _Nonnull"
+    - Position: 1
+      Type: "T _Nonnull"
+  - Selector: "emitValue:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__emit(value:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "T _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "resetReplayCache"
+    MethodKind: "Instance"
+    SwiftName: "resetReplayCache()"
+    ResultType: "void"
+  - Selector: "tryEmitValue:"
+    MethodKind: "Instance"
+    SwiftName: "tryEmit(value:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "T _Nonnull"
+- Name: "SharedSkieKotlinOptionalFlow"
+  SwiftBridge: "SkieSwiftOptionalFlow"
+  SwiftName: "SkieKotlinOptionalFlow"
+  SwiftPrivate: true
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedSkieKotlinOptionalMutableSharedFlow"
+  SwiftBridge: "SkieSwiftOptionalMutableSharedFlow"
+  SwiftName: "SkieKotlinOptionalMutableSharedFlow"
+  SwiftPrivate: true
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<id> * _Nonnull"
+  - Name: "subscriptionCount"
+    PropertyKind: "Instance"
+    SwiftName: "subscriptionCount"
+    Type: "SharedSkieKotlinStateFlow<SharedInt *> * _Nonnull"
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreMutableSharedFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "emitValue:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__emit(value:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "T _Nullable"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "resetReplayCache"
+    MethodKind: "Instance"
+    SwiftName: "resetReplayCache()"
+    ResultType: "void"
+  - Selector: "tryEmitValue:"
+    MethodKind: "Instance"
+    SwiftName: "tryEmit(value:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "T _Nullable"
+- Name: "SharedSkieKotlinOptionalMutableStateFlow"
+  SwiftBridge: "SkieSwiftOptionalMutableStateFlow"
+  SwiftName: "SkieKotlinOptionalMutableStateFlow"
+  SwiftPrivate: true
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<id> * _Nonnull"
+  - Name: "subscriptionCount"
+    PropertyKind: "Instance"
+    SwiftName: "subscriptionCount"
+    Type: "SharedSkieKotlinStateFlow<SharedInt *> * _Nonnull"
+  - Name: "value"
+    PropertyKind: "Instance"
+    SwiftName: "value"
+    Type: "T _Nullable"
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreMutableStateFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "compareAndSetExpect:update:"
+    MethodKind: "Instance"
+    SwiftName: "compareAndSet(expect:update:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "T _Nullable"
+    - Position: 1
+      Type: "T _Nullable"
+  - Selector: "emitValue:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__emit(value:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "T _Nullable"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "resetReplayCache"
+    MethodKind: "Instance"
+    SwiftName: "resetReplayCache()"
+    ResultType: "void"
+  - Selector: "tryEmitValue:"
+    MethodKind: "Instance"
+    SwiftName: "tryEmit(value:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "T _Nullable"
+- Name: "SharedSkieKotlinOptionalSharedFlow"
+  SwiftBridge: "SkieSwiftOptionalSharedFlow"
+  SwiftName: "SkieKotlinOptionalSharedFlow"
+  SwiftPrivate: true
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<id> * _Nonnull"
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreSharedFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedSkieKotlinOptionalStateFlow"
+  SwiftBridge: "SkieSwiftOptionalStateFlow"
+  SwiftName: "SkieKotlinOptionalStateFlow"
+  SwiftPrivate: true
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<id> * _Nonnull"
+  - Name: "value"
+    PropertyKind: "Instance"
+    SwiftName: "value"
+    Type: "T _Nullable"
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreStateFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedSkieKotlinSharedFlow"
+  SwiftBridge: "SkieSwiftSharedFlow"
+  SwiftName: "SkieKotlinSharedFlow"
+  SwiftPrivate: true
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<T> * _Nonnull"
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreSharedFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedSkieKotlinStateFlow"
+  SwiftBridge: "SkieSwiftStateFlow"
+  SwiftName: "SkieKotlinStateFlow"
+  SwiftPrivate: true
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<T> * _Nonnull"
+  - Name: "value"
+    PropertyKind: "Instance"
+    SwiftName: "value"
+    Type: "T _Nonnull"
+  Methods:
+  - Selector: "initWithDelegate:"
+    MethodKind: "Instance"
+    SwiftName: "init(_:)"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreStateFlow> _Nonnull"
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedSkie_CancellationHandler"
+  SwiftName: "Skie_CancellationHandler"
+  SwiftPrivate: true
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "cancel"
+    MethodKind: "Instance"
+    SwiftName: "cancel()"
+    ResultType: "void"
+- Name: "SharedSkie_SuspendHandler"
+  SwiftName: "Skie_SuspendHandler"
+  SwiftPrivate: true
+  Methods:
+  - Selector: "initWithCancellationHandler:dispatcherDelegate:onResult:"
+    MethodKind: "Instance"
+    SwiftName: "init(cancellationHandler:dispatcherDelegate:onResult:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedSkie_CancellationHandler * _Nonnull"
+    - Position: 1
+      Type: "id<SharedSkie_DispatcherDelegate> _Nonnull"
+    - Position: 2
+      Type: "void (^ _Nonnull)(SharedSkie_SuspendResult * _Nonnull)"
+- Name: "SharedSkie_SuspendResult"
+  SwiftName: "Skie_SuspendResult"
+  SwiftPrivate: true
+- Name: "SharedSkie_SuspendResultSuccess"
+  SwiftName: "Skie_SuspendResult.Success"
+  SwiftPrivate: true
+  Properties:
+  - Name: "value"
+    PropertyKind: "Instance"
+    SwiftName: "value"
+    Type: "id _Nullable"
+  Methods:
+  - Selector: "initWithValue:"
+    MethodKind: "Instance"
+    SwiftName: "init(value:)"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "doCopyValue:"
+    MethodKind: "Instance"
+    SwiftName: "doCopy(value:)"
+    ResultType: "SharedSkie_SuspendResultSuccess * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedSkie_SuspendResultError"
+  SwiftName: "Skie_SuspendResult.Error"
+  SwiftPrivate: true
+  Properties:
+  - Name: "error"
+    PropertyKind: "Instance"
+    SwiftName: "error"
+    Type: "NSError * _Nonnull"
+  Methods:
+  - Selector: "initWithError:"
+    MethodKind: "Instance"
+    SwiftName: "init(error:)"
+    Parameters:
+    - Position: 0
+      Type: "NSError * _Nonnull"
+  - Selector: "doCopyError:"
+    MethodKind: "Instance"
+    SwiftName: "doCopy(error:)"
+    ResultType: "SharedSkie_SuspendResultError * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "NSError * _Nonnull"
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedSkie_SuspendResultCanceled"
+  SwiftName: "Skie_SuspendResult.Canceled"
+  SwiftPrivate: true
+- Name: "SharedSpayd"
+  SwiftName: "Spayd"
+  Methods:
+  - Selector: "initWithParameters_:"
+    MethodKind: "Instance"
+    SwiftName: "init(parameters:)"
+    Parameters:
+    - Position: 0
+      Type: "NSDictionary<SharedKey *, id> * _Nonnull"
+  - Selector: "initWithAccount:alternateAccounts:currency:amount:date:senderReference:recipientName:paymentType:message:notificationType:notificationAddress:repeat:variableSymbol:specificSymbol:constantSymbol:identifier:url:"
+    MethodKind: "Instance"
+    SwiftName: "init(account:alternateAccounts:currency:amount:date:senderReference:recipientName:paymentType:message:notificationType:notificationAddress:repeat:variableSymbol:specificSymbol:constantSymbol:identifier:url:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedAccount * _Nonnull"
+    - Position: 1
+      Type: "SharedAccountList * _Nullable"
+    - Position: 2
+      Type: "NSString * _Nullable"
+    - Position: 3
+      Type: "SharedDouble * _Nullable"
+    - Position: 4
+      Type: "SharedKotlinx_datetimeLocalDate * _Nullable"
+    - Position: 5
+      Type: "SharedInt * _Nullable"
+    - Position: 6
+      Type: "NSString * _Nullable"
+    - Position: 7
+      Type: "NSString * _Nullable"
+    - Position: 8
+      Type: "NSString * _Nullable"
+    - Position: 9
+      Type: "SharedNotificationType * _Nullable"
+    - Position: 10
+      Type: "NSString * _Nullable"
+    - Position: 11
+      Type: "SharedInt * _Nullable"
+    - Position: 12
+      Type: "SharedLong * _Nullable"
+    - Position: 13
+      Type: "SharedLong * _Nullable"
+    - Position: 14
+      Type: "SharedLong * _Nullable"
+    - Position: 15
+      Type: "NSString * _Nullable"
+    - Position: 16
+      Type: "NSString * _Nullable"
+  - Selector: "initWithParameters:"
+    MethodKind: "Instance"
+    SwiftName: "init(parameters:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinArray<SharedKotlinPair<SharedKey *, id> *> * _Nonnull"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedSpaydCompanion"
+  SwiftName: "Spayd.Companion"
+  Properties:
+  - Name: "FILE_EXTENSION"
+    PropertyKind: "Instance"
+    SwiftName: "FILE_EXTENSION"
+    Type: "NSString * _Nonnull"
+  - Name: "MIME_TYPE"
+    PropertyKind: "Instance"
+    SwiftName: "MIME_TYPE"
+    Type: "NSString * _Nonnull"
+- Name: "SharedKey"
+  SwiftBridge: "Key"
+  SwiftName: "__Key"
+  SwiftPrivate: true
+  Properties:
+  - Name: "key"
+    PropertyKind: "Instance"
+    SwiftName: "key"
+    Type: "NSString * _Nonnull"
+  - Name: "maxLength"
+    PropertyKind: "Instance"
+    SwiftName: "maxLength"
+    Type: "SharedInt * _Nullable"
+  - Name: "maxValue"
+    PropertyKind: "Instance"
+    SwiftName: "maxValue"
+    Type: "SharedDouble * _Nullable"
+  - Name: "minLength"
+    PropertyKind: "Instance"
+    SwiftName: "minLength"
+    Type: "SharedInt * _Nullable"
+  - Name: "minValue"
+    PropertyKind: "Instance"
+    SwiftName: "minValue"
+    Type: "SharedDouble * _Nullable"
+  - Name: "type"
+    PropertyKind: "Instance"
+    SwiftName: "type"
+    Type: "id<SharedKotlinKClass> _Nonnull"
+  - Name: "date"
+    PropertyKind: "Class"
+    SwiftName: "date"
+    Type: "SharedKey * _Nonnull"
+  - Name: "currency"
+    PropertyKind: "Class"
+    SwiftName: "currency"
+    Type: "SharedKey * _Nonnull"
+  - Name: "amount"
+    PropertyKind: "Class"
+    SwiftName: "amount"
+    Type: "SharedKey * _Nonnull"
+  - Name: "account"
+    PropertyKind: "Class"
+    SwiftName: "account"
+    Type: "SharedKey * _Nonnull"
+  - Name: "alternateAccounts"
+    PropertyKind: "Class"
+    SwiftName: "alternateAccounts"
+    Type: "SharedKey * _Nonnull"
+  - Name: "senderReference"
+    PropertyKind: "Class"
+    SwiftName: "senderReference"
+    Type: "SharedKey * _Nonnull"
+  - Name: "recipientName"
+    PropertyKind: "Class"
+    SwiftName: "recipientName"
+    Type: "SharedKey * _Nonnull"
+  - Name: "paymentType"
+    PropertyKind: "Class"
+    SwiftName: "paymentType"
+    Type: "SharedKey * _Nonnull"
+  - Name: "message"
+    PropertyKind: "Class"
+    SwiftName: "message"
+    Type: "SharedKey * _Nonnull"
+  - Name: "notifyType"
+    PropertyKind: "Class"
+    SwiftName: "notifyType"
+    Type: "SharedKey * _Nonnull"
+  - Name: "notifyAddress"
+    PropertyKind: "Class"
+    SwiftName: "notifyAddress"
+    Type: "SharedKey * _Nonnull"
+  - Name: "repeat"
+    PropertyKind: "Class"
+    SwiftName: "repeat"
+    Type: "SharedKey * _Nonnull"
+  - Name: "variableSymbol"
+    PropertyKind: "Class"
+    SwiftName: "variableSymbol"
+    Type: "SharedKey * _Nonnull"
+  - Name: "specificSymbol"
+    PropertyKind: "Class"
+    SwiftName: "specificSymbol"
+    Type: "SharedKey * _Nonnull"
+  - Name: "constantSymbol"
+    PropertyKind: "Class"
+    SwiftName: "constantSymbol"
+    Type: "SharedKey * _Nonnull"
+  - Name: "identifier"
+    PropertyKind: "Class"
+    SwiftName: "identifier"
+    Type: "SharedKey * _Nonnull"
+  - Name: "url"
+    PropertyKind: "Class"
+    SwiftName: "url"
+    Type: "SharedKey * _Nonnull"
+  Methods:
+  - Selector: "initWithName:ordinal:"
+    MethodKind: "Instance"
+    SwiftName: "init(name:ordinal:)"
+    Availability: "nonswift"
+- Name: "SharedNotificationType"
+  SwiftBridge: "NotificationType"
+  SwiftName: "__NotificationType"
+  SwiftPrivate: true
+  Properties:
+  - Name: "key"
+    PropertyKind: "Instance"
+    SwiftName: "key"
+    Type: "NSString * _Nonnull"
+  - Name: "email"
+    PropertyKind: "Class"
+    SwiftName: "email"
+    Type: "SharedNotificationType * _Nonnull"
+  - Name: "phone"
+    PropertyKind: "Class"
+    SwiftName: "phone"
+    Type: "SharedNotificationType * _Nonnull"
+  Methods:
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+  - Selector: "initWithName:ordinal:"
+    MethodKind: "Instance"
+    SwiftName: "init(name:ordinal:)"
+    Availability: "nonswift"
+- Name: "SharedAccountList"
+  SwiftName: "AccountList"
+  Properties:
+  - Name: "accounts"
+    PropertyKind: "Instance"
+    SwiftName: "accounts"
+    Type: "NSArray<SharedAccount *> * _Nonnull"
+  Methods:
+  - Selector: "initWithAccounts:"
+    MethodKind: "Instance"
+    SwiftName: "init(accounts:)"
+    Parameters:
+    - Position: 0
+      Type: "NSArray<SharedAccount *> * _Nonnull"
+  - Selector: "doCopyAccounts:"
+    MethodKind: "Instance"
+    SwiftName: "doCopy(accounts:)"
+    ResultType: "SharedAccountList * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "NSArray<SharedAccount *> * _Nonnull"
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedAccount"
+  SwiftName: "Account"
+  Properties:
+  - Name: "bic"
+    PropertyKind: "Instance"
+    SwiftName: "bic"
+    Type: "NSString * _Nullable"
+  - Name: "iban"
+    PropertyKind: "Instance"
+    SwiftName: "iban"
+    Type: "NSString * _Nonnull"
+  Methods:
+  - Selector: "initWithPrefix:account:bank:"
+    MethodKind: "Instance"
+    SwiftName: "init(prefix:account:bank:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedLong * _Nullable"
+    - Position: 1
+      Type: "int64_t"
+    - Position: 2
+      Type: "int64_t"
+  - Selector: "initWithIban:bic:"
+    MethodKind: "Instance"
+    SwiftName: "init(iban:bic:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+    - Position: 1
+      Type: "NSString * _Nullable"
+  - Selector: "doCopyIban:bic:"
+    MethodKind: "Instance"
+    SwiftName: "doCopy(iban:bic:)"
+    ResultType: "SharedAccount * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+    - Position: 1
+      Type: "NSString * _Nullable"
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedIBAN"
+  SwiftName: "IBAN"
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "createForCzechAccountPrefix:account:bank:error:"
+    MethodKind: "Instance"
+    SwiftName: "createForCzechAccount(prefix:account:bank:)"
+    ResultType: "NSString * _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "SharedLong * _Nullable"
+    - Position: 1
+      Type: "int64_t"
+    - Position: 2
+      Type: "int64_t"
+- Name: "SharedValidationException"
+  SwiftName: "ValidationException"
+  Properties:
+  - Name: "message"
+    PropertyKind: "Instance"
+    SwiftName: "message"
+    Type: "NSString * _Nullable"
+  Methods:
+  - Selector: "initWithMessage:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nullable"
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+    Availability: "nonswift"
+  - Selector: "initWithMessage:cause:"
+    MethodKind: "Instance"
+    SwiftName: "init(message:cause:)"
+    Availability: "nonswift"
+  - Selector: "initWithCause:"
+    MethodKind: "Instance"
+    SwiftName: "init(cause:)"
+    Availability: "nonswift"
+- Name: "SharedBuffer"
+  SwiftName: "Buffer"
+  Properties:
+  - Name: "capacity"
+    PropertyKind: "Instance"
+    SwiftName: "capacity"
+    Type: "int32_t"
+  - Name: "limit"
+    PropertyKind: "Instance"
+    SwiftName: "limit"
+    Type: "int32_t"
+  - Name: "mark"
+    PropertyKind: "Instance"
+    SwiftName: "mark"
+    Type: "int32_t"
+  - Name: "position"
+    PropertyKind: "Instance"
+    SwiftName: "position"
+    Type: "int32_t"
+  Methods:
+  - Selector: "capacity"
+    MethodKind: "Instance"
+    SwiftName: "capacity_()"
+    ResultType: "int32_t"
+  - Selector: "hasRemaining"
+    MethodKind: "Instance"
+    SwiftName: "hasRemaining()"
+    ResultType: "BOOL"
+  - Selector: "limit"
+    MethodKind: "Instance"
+    SwiftName: "limit_()"
+    ResultType: "int32_t"
+  - Selector: "limitNewLimit:"
+    MethodKind: "Instance"
+    SwiftName: "limit(newLimit:)"
+    ResultType: "SharedBuffer * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "position"
+    MethodKind: "Instance"
+    SwiftName: "position_()"
+    ResultType: "int32_t"
+  - Selector: "positionNewPosition:"
+    MethodKind: "Instance"
+    SwiftName: "position(newPosition:)"
+    ResultType: "SharedBuffer * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "remaining"
+    MethodKind: "Instance"
+    SwiftName: "remaining()"
+    ResultType: "int32_t"
+  - Selector: "rewind"
+    MethodKind: "Instance"
+    SwiftName: "rewind()"
+    ResultType: "SharedBuffer * _Nonnull"
+- Name: "SharedBufferCompanion"
+  SwiftName: "Buffer.Companion"
+  Properties:
+  - Name: "UNSET_MARK"
+    PropertyKind: "Instance"
+    SwiftName: "UNSET_MARK"
+    Type: "int32_t"
+- Name: "SharedCharArrayBuffer"
+  SwiftName: "CharArrayBuffer"
+  Methods:
+  - Selector: "initWithArray:"
+    MethodKind: "Instance"
+    SwiftName: "init(array:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinCharArray * _Nonnull"
+  - Selector: "initWithCapacity:backingArray:offset:"
+    MethodKind: "Instance"
+    SwiftName: "init(capacity:backingArray:offset:)"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "SharedKotlinCharArray * _Nonnull"
+    - Position: 2
+      Type: "int32_t"
+  - Selector: "get"
+    MethodKind: "Instance"
+    SwiftName: "get()"
+    ResultType: "unichar"
+  - Selector: "getIndex:"
+    MethodKind: "Instance"
+    SwiftName: "get(index:)"
+    ResultType: "unichar"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "getDest:off:len:"
+    MethodKind: "Instance"
+    SwiftName: "get(dest:off:len:)"
+    ResultType: "SharedCharArrayBuffer * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinCharArray * _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "int32_t"
+  - Selector: "subSequenceStart:end:"
+    MethodKind: "Instance"
+    SwiftName: "subSequence(start:end:)"
+    ResultType: "SharedCharArrayBuffer * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedFormatToken"
+  SwiftName: "FormatToken"
+  Properties:
+  - Name: "argIndex"
+    PropertyKind: "Instance"
+    SwiftName: "argIndex"
+    Type: "int32_t"
+  - Name: "conversionType"
+    PropertyKind: "Instance"
+    SwiftName: "conversionType"
+    Type: "unichar"
+  - Name: "dateSuffix"
+    PropertyKind: "Instance"
+    SwiftName: "dateSuffix"
+    Type: "unichar"
+  - Name: "flags"
+    PropertyKind: "Instance"
+    SwiftName: "flags"
+    Type: "int32_t"
+  - Name: "formatStringStartIndex"
+    PropertyKind: "Instance"
+    SwiftName: "formatStringStartIndex"
+    Type: "int32_t"
+  - Name: "isPrecisionSet"
+    PropertyKind: "Instance"
+    SwiftName: "isPrecisionSet"
+    Type: "BOOL"
+  - Name: "isWidthSet"
+    PropertyKind: "Instance"
+    SwiftName: "isWidthSet"
+    Type: "BOOL"
+  - Name: "plainText"
+    PropertyKind: "Instance"
+    SwiftName: "plainText"
+    Type: "NSString * _Nullable"
+  - Name: "precision"
+    PropertyKind: "Instance"
+    SwiftName: "precision"
+    Type: "int32_t"
+  - Name: "width"
+    PropertyKind: "Instance"
+    SwiftName: "width"
+    Type: "int32_t"
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "getStrFlags"
+    MethodKind: "Instance"
+    SwiftName: "getStrFlags()"
+    ResultType: "NSString * _Nonnull"
+  - Selector: "isFlagSetFlag:"
+    MethodKind: "Instance"
+    SwiftName: "isFlagSet(flag:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "requireArgument"
+    MethodKind: "Instance"
+    SwiftName: "requireArgument()"
+    ResultType: "BOOL"
+  - Selector: "setFlagC:"
+    MethodKind: "Instance"
+    SwiftName: "setFlag(c:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "unichar"
+- Name: "SharedFormatTokenCompanion"
+  SwiftName: "FormatToken.Companion"
+  Properties:
+  - Name: "FLAGS_UNSET"
+    PropertyKind: "Instance"
+    SwiftName: "FLAGS_UNSET"
+    Type: "int32_t"
+  - Name: "FLAG_ADD"
+    PropertyKind: "Instance"
+    SwiftName: "FLAG_ADD"
+    Type: "int32_t"
+  - Name: "FLAG_COMMA"
+    PropertyKind: "Instance"
+    SwiftName: "FLAG_COMMA"
+    Type: "int32_t"
+  - Name: "FLAG_MINUS"
+    PropertyKind: "Instance"
+    SwiftName: "FLAG_MINUS"
+    Type: "int32_t"
+  - Name: "FLAG_PARENTHESIS"
+    PropertyKind: "Instance"
+    SwiftName: "FLAG_PARENTHESIS"
+    Type: "int32_t"
+  - Name: "FLAG_SHARP"
+    PropertyKind: "Instance"
+    SwiftName: "FLAG_SHARP"
+    Type: "int32_t"
+  - Name: "FLAG_SPACE"
+    PropertyKind: "Instance"
+    SwiftName: "FLAG_SPACE"
+    Type: "int32_t"
+  - Name: "FLAG_ZERO"
+    PropertyKind: "Instance"
+    SwiftName: "FLAG_ZERO"
+    Type: "int32_t"
+  - Name: "LAST_ARGUMENT_INDEX"
+    PropertyKind: "Instance"
+    SwiftName: "LAST_ARGUMENT_INDEX"
+    Type: "int32_t"
+  - Name: "UNSET"
+    PropertyKind: "Instance"
+    SwiftName: "UNSET"
+    Type: "int32_t"
+- Name: "SharedFormatter"
+  SwiftName: "Formatter"
+  Methods:
+  - Selector: "init"
+    MethodKind: "Instance"
+    SwiftName: "init()"
+  - Selector: "formatFormat:args:"
+    MethodKind: "Instance"
+    SwiftName: "format(format:args:)"
+    ResultType: "SharedFormatter * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+    - Position: 1
+      Type: "SharedKotlinArray<id> * _Nonnull"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedFormatterCompanion"
+  SwiftName: "Formatter.Companion"
+  Methods:
+  - Selector: "formatFormat:args:"
+    MethodKind: "Instance"
+    SwiftName: "format(format:args:)"
+    ResultType: "NSString * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+    - Position: 1
+      Type: "SharedKotlinArray<id> * _Nonnull"
+- Name: "SharedParserStateMachine"
+  SwiftName: "ParserStateMachine"
+  Properties:
+  - Name: "nextFormatToken"
+    PropertyKind: "Instance"
+    SwiftName: "nextFormatToken"
+    Type: "SharedFormatToken * _Nonnull"
+  Methods:
+  - Selector: "initWithFormat:"
+    MethodKind: "Instance"
+    SwiftName: "init(format:)"
+    Parameters:
+    - Position: 0
+      Type: "SharedCharArrayBuffer * _Nonnull"
+  - Selector: "reset"
+    MethodKind: "Instance"
+    SwiftName: "reset()"
+    ResultType: "void"
+- Name: "SharedParserStateMachineCompanion"
+  SwiftName: "ParserStateMachine.Companion"
+- Name: "SharedTransformer"
+  SwiftName: "Transformer"
+  Methods:
+  - Selector: "transformToken:argument:"
+    MethodKind: "Instance"
+    SwiftName: "transform(token:argument:)"
+    ResultType: "NSString * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "SharedFormatToken * _Nonnull"
+    - Position: 1
+      Type: "id _Nullable"
+- Name: "SharedKotlinx_datetimeLocalDate"
+  SwiftName: "Kotlinx_datetimeLocalDate"
+  Properties:
+  - Name: "dayOfMonth"
+    PropertyKind: "Instance"
+    SwiftName: "dayOfMonth"
+    Type: "int32_t"
+  - Name: "dayOfWeek"
+    PropertyKind: "Instance"
+    SwiftName: "dayOfWeek"
+    Type: "SharedKotlinx_datetimeDayOfWeek * _Nonnull"
+  - Name: "dayOfYear"
+    PropertyKind: "Instance"
+    SwiftName: "dayOfYear"
+    Type: "int32_t"
+  - Name: "month"
+    PropertyKind: "Instance"
+    SwiftName: "month"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "monthNumber"
+    PropertyKind: "Instance"
+    SwiftName: "monthNumber"
+    Type: "int32_t"
+  - Name: "year"
+    PropertyKind: "Instance"
+    SwiftName: "year"
+    Type: "int32_t"
+  Methods:
+  - Selector: "initWithYear:month:dayOfMonth:"
+    MethodKind: "Instance"
+    SwiftName: "init(year:month:dayOfMonth:)"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+    - Position: 2
+      Type: "int32_t"
+  - Selector: "initWithYear:monthNumber:dayOfMonth:"
+    MethodKind: "Instance"
+    SwiftName: "init(year:monthNumber:dayOfMonth:)"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "int32_t"
+  - Selector: "compareToOther:"
+    MethodKind: "Instance"
+    SwiftName: "compareTo(other:)"
+    ResultType: "int32_t"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimeLocalDate * _Nonnull"
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "toEpochDays"
+    MethodKind: "Instance"
+    SwiftName: "toEpochDays()"
+    ResultType: "int32_t"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedKotlinx_datetimeLocalDateCompanion"
+  SwiftName: "Kotlinx_datetimeLocalDate.Companion"
+  Methods:
+  - Selector: "FormatBlock:"
+    MethodKind: "Instance"
+    SwiftName: "Format(block:)"
+    ResultType: "id<SharedKotlinx_datetimeDateTimeFormat> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "void (^ _Nonnull)(id<SharedKotlinx_datetimeDateTimeFormatBuilderWithDate> _Nonnull)"
+  - Selector: "fromEpochDaysEpochDays:"
+    MethodKind: "Instance"
+    SwiftName: "fromEpochDays(epochDays:)"
+    ResultType: "SharedKotlinx_datetimeLocalDate * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "parseInput:format:"
+    MethodKind: "Instance"
+    SwiftName: "parse(input:format:)"
+    ResultType: "SharedKotlinx_datetimeLocalDate * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinx_datetimeDateTimeFormat> _Nonnull"
+  - Selector: "serializer"
+    MethodKind: "Instance"
+    SwiftName: "serializer()"
+    ResultType: "id<SharedKotlinx_serialization_coreKSerializer> _Nonnull"
+- Name: "SharedKotlinx_datetimeMonth"
+  SwiftBridge: "Kotlinx_datetimeMonth"
+  SwiftName: "__Kotlinx_datetimeMonth"
+  SwiftPrivate: true
+  Properties:
+  - Name: "january"
+    PropertyKind: "Class"
+    SwiftName: "january"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "february"
+    PropertyKind: "Class"
+    SwiftName: "february"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "march"
+    PropertyKind: "Class"
+    SwiftName: "march"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "april"
+    PropertyKind: "Class"
+    SwiftName: "april"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "may"
+    PropertyKind: "Class"
+    SwiftName: "may"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "june"
+    PropertyKind: "Class"
+    SwiftName: "june"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "july"
+    PropertyKind: "Class"
+    SwiftName: "july"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "august"
+    PropertyKind: "Class"
+    SwiftName: "august"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "september"
+    PropertyKind: "Class"
+    SwiftName: "september"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "october"
+    PropertyKind: "Class"
+    SwiftName: "october"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "november"
+    PropertyKind: "Class"
+    SwiftName: "november"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  - Name: "december"
+    PropertyKind: "Class"
+    SwiftName: "december"
+    Type: "SharedKotlinx_datetimeMonth * _Nonnull"
+  Methods:
+  - Selector: "initWithName:ordinal:"
+    MethodKind: "Instance"
+    SwiftName: "init(name:ordinal:)"
+    Availability: "nonswift"
+- Name: "SharedKotlinx_datetimeDayOfWeek"
+  SwiftBridge: "Kotlinx_datetimeDayOfWeek"
+  SwiftName: "__Kotlinx_datetimeDayOfWeek"
+  SwiftPrivate: true
+  Properties:
+  - Name: "monday"
+    PropertyKind: "Class"
+    SwiftName: "monday"
+    Type: "SharedKotlinx_datetimeDayOfWeek * _Nonnull"
+  - Name: "tuesday"
+    PropertyKind: "Class"
+    SwiftName: "tuesday"
+    Type: "SharedKotlinx_datetimeDayOfWeek * _Nonnull"
+  - Name: "wednesday"
+    PropertyKind: "Class"
+    SwiftName: "wednesday"
+    Type: "SharedKotlinx_datetimeDayOfWeek * _Nonnull"
+  - Name: "thursday"
+    PropertyKind: "Class"
+    SwiftName: "thursday"
+    Type: "SharedKotlinx_datetimeDayOfWeek * _Nonnull"
+  - Name: "friday"
+    PropertyKind: "Class"
+    SwiftName: "friday"
+    Type: "SharedKotlinx_datetimeDayOfWeek * _Nonnull"
+  - Name: "saturday"
+    PropertyKind: "Class"
+    SwiftName: "saturday"
+    Type: "SharedKotlinx_datetimeDayOfWeek * _Nonnull"
+  - Name: "sunday"
+    PropertyKind: "Class"
+    SwiftName: "sunday"
+    Type: "SharedKotlinx_datetimeDayOfWeek * _Nonnull"
+  Methods:
+  - Selector: "initWithName:ordinal:"
+    MethodKind: "Instance"
+    SwiftName: "init(name:ordinal:)"
+    Availability: "nonswift"
+- Name: "SharedKotlinx_datetimePadding"
+  SwiftBridge: "Kotlinx_datetimePadding"
+  SwiftName: "__Kotlinx_datetimePadding"
+  SwiftPrivate: true
+  Properties:
+  - Name: "none"
+    PropertyKind: "Class"
+    SwiftName: "none"
+    Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Name: "zero"
+    PropertyKind: "Class"
+    SwiftName: "zero"
+    Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Name: "space"
+    PropertyKind: "Class"
+    SwiftName: "space"
+    Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  Methods:
+  - Selector: "initWithName:ordinal:"
+    MethodKind: "Instance"
+    SwiftName: "init(name:ordinal:)"
+    Availability: "nonswift"
+- Name: "SharedKotlinx_datetimeMonthNames"
+  SwiftName: "Kotlinx_datetimeMonthNames"
+  Properties:
+  - Name: "names"
+    PropertyKind: "Instance"
+    SwiftName: "names"
+    Type: "NSArray<NSString *> * _Nonnull"
+  Methods:
+  - Selector: "initWithJanuary:february:march:april:may:june:july:august:september:october:november:december:"
+    MethodKind: "Instance"
+    SwiftName: "init(january:february:march:april:may:june:july:august:september:october:november:december:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+    - Position: 1
+      Type: "NSString * _Nonnull"
+    - Position: 2
+      Type: "NSString * _Nonnull"
+    - Position: 3
+      Type: "NSString * _Nonnull"
+    - Position: 4
+      Type: "NSString * _Nonnull"
+    - Position: 5
+      Type: "NSString * _Nonnull"
+    - Position: 6
+      Type: "NSString * _Nonnull"
+    - Position: 7
+      Type: "NSString * _Nonnull"
+    - Position: 8
+      Type: "NSString * _Nonnull"
+    - Position: 9
+      Type: "NSString * _Nonnull"
+    - Position: 10
+      Type: "NSString * _Nonnull"
+    - Position: 11
+      Type: "NSString * _Nonnull"
+  - Selector: "initWithNames:"
+    MethodKind: "Instance"
+    SwiftName: "init(names:)"
+    Parameters:
+    - Position: 0
+      Type: "NSArray<NSString *> * _Nonnull"
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedKotlinx_datetimeMonthNamesCompanion"
+  SwiftName: "Kotlinx_datetimeMonthNames.Companion"
+  Properties:
+  - Name: "ENGLISH_ABBREVIATED"
+    PropertyKind: "Instance"
+    SwiftName: "ENGLISH_ABBREVIATED"
+    Type: "SharedKotlinx_datetimeMonthNames * _Nonnull"
+  - Name: "ENGLISH_FULL"
+    PropertyKind: "Instance"
+    SwiftName: "ENGLISH_FULL"
+    Type: "SharedKotlinx_datetimeMonthNames * _Nonnull"
+- Name: "SharedKotlinx_datetimeDayOfWeekNames"
+  SwiftName: "Kotlinx_datetimeDayOfWeekNames"
+  Properties:
+  - Name: "names"
+    PropertyKind: "Instance"
+    SwiftName: "names"
+    Type: "NSArray<NSString *> * _Nonnull"
+  Methods:
+  - Selector: "initWithMonday:tuesday:wednesday:thursday:friday:saturday:sunday:"
+    MethodKind: "Instance"
+    SwiftName: "init(monday:tuesday:wednesday:thursday:friday:saturday:sunday:)"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+    - Position: 1
+      Type: "NSString * _Nonnull"
+    - Position: 2
+      Type: "NSString * _Nonnull"
+    - Position: 3
+      Type: "NSString * _Nonnull"
+    - Position: 4
+      Type: "NSString * _Nonnull"
+    - Position: 5
+      Type: "NSString * _Nonnull"
+    - Position: 6
+      Type: "NSString * _Nonnull"
+  - Selector: "initWithNames:"
+    MethodKind: "Instance"
+    SwiftName: "init(names:)"
+    Parameters:
+    - Position: 0
+      Type: "NSArray<NSString *> * _Nonnull"
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedKotlinx_datetimeDayOfWeekNamesCompanion"
+  SwiftName: "Kotlinx_datetimeDayOfWeekNames.Companion"
+  Properties:
+  - Name: "ENGLISH_ABBREVIATED"
+    PropertyKind: "Instance"
+    SwiftName: "ENGLISH_ABBREVIATED"
+    Type: "SharedKotlinx_datetimeDayOfWeekNames * _Nonnull"
+  - Name: "ENGLISH_FULL"
+    PropertyKind: "Instance"
+    SwiftName: "ENGLISH_FULL"
+    Type: "SharedKotlinx_datetimeDayOfWeekNames * _Nonnull"
+- Name: "SharedKotlinx_serialization_coreSerialKind"
+  SwiftName: "Kotlinx_serialization_coreSerialKind"
+  Methods:
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "description"
+    MethodKind: "Instance"
+    SwiftName: "description()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedKotlinx_serialization_coreSerialKindCONTEXTUAL"
+  SwiftName: "Kotlinx_serialization_coreSerialKind.CONTEXTUAL"
+- Name: "SharedKotlinx_serialization_coreSerialKindENUM"
+  SwiftName: "Kotlinx_serialization_coreSerialKind.ENUM"
+- Name: "SharedKotlinx_serialization_coreSerializersModule"
+  SwiftName: "Kotlinx_serialization_coreSerializersModule"
+  Methods:
+  - Selector: "dumpToCollector:"
+    MethodKind: "Instance"
+    SwiftName: "dumpTo(collector:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerializersModuleCollector> _Nonnull"
+  - Selector: "getContextualKClass:typeArgumentsSerializers:"
+    MethodKind: "Instance"
+    SwiftName: "getContextual(kClass:typeArgumentsSerializers:)"
+    ResultType: "id<SharedKotlinx_serialization_coreKSerializer> _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "NSArray<id<SharedKotlinx_serialization_coreKSerializer>> * _Nonnull"
+  - Selector: "getPolymorphicBaseClass:value:"
+    MethodKind: "Instance"
+    SwiftName: "getPolymorphic(baseClass:value:)"
+    ResultType: "id<SharedKotlinx_serialization_coreSerializationStrategy> _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "id _Nonnull"
+  - Selector: "getPolymorphicBaseClass:serializedClassName:"
+    MethodKind: "Instance"
+    SwiftName: "getPolymorphic(baseClass:serializedClassName:)"
+    ResultType: "id<SharedKotlinx_serialization_coreDeserializationStrategy> _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "NSString * _Nullable"
+- Name: "SharedKotlinx_serialization_corePolymorphicKind"
+  SwiftName: "Kotlinx_serialization_corePolymorphicKind"
+- Name: "SharedKotlinx_serialization_corePolymorphicKindOPEN"
+  SwiftName: "Kotlinx_serialization_corePolymorphicKind.OPEN"
+- Name: "SharedKotlinx_serialization_corePolymorphicKindSEALED"
+  SwiftName: "Kotlinx_serialization_corePolymorphicKind.SEALED"
+- Name: "SharedKotlinx_serialization_corePrimitiveKind"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindBOOLEAN"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.BOOLEAN"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindBYTE"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.BYTE"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindCHAR"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.CHAR"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindDOUBLE"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.DOUBLE"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindFLOAT"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.FLOAT"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindINT"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.INT"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindLONG"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.LONG"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindSHORT"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.SHORT"
+- Name: "SharedKotlinx_serialization_corePrimitiveKindSTRING"
+  SwiftName: "Kotlinx_serialization_corePrimitiveKind.STRING"
+- Name: "SharedKotlinx_serialization_coreStructureKind"
+  SwiftName: "Kotlinx_serialization_coreStructureKind"
+- Name: "SharedKotlinx_serialization_coreStructureKindCLASS"
+  SwiftName: "Kotlinx_serialization_coreStructureKind.CLASS"
+- Name: "SharedKotlinx_serialization_coreStructureKindLIST"
+  SwiftName: "Kotlinx_serialization_coreStructureKind.LIST"
+- Name: "SharedKotlinx_serialization_coreStructureKindMAP"
+  SwiftName: "Kotlinx_serialization_coreStructureKind.MAP"
+- Name: "SharedKotlinx_serialization_coreStructureKindOBJECT"
+  SwiftName: "Kotlinx_serialization_coreStructureKind.OBJECT"
+- Name: "Shared__SkieTypeExportsKt"
+  SwiftName: "__SkieTypeExportsKt"
+  Availability: "nonswift"
+  Methods:
+  - Selector: "skieTypeExports_0P0:p1:p2:p3:p4:p5:p6:p7:p8:p9:p10:p11:p12:p13:p14:p15:p16:p17:p18:p19:p20:p21:p22:p23:"
+    MethodKind: "Class"
+    SwiftName: "skieTypeExports_0(p0:p1:p2:p3:p4:p5:p6:p7:p8:p9:p10:p11:p12:p13:p14:p15:p16:p17:p18:p19:p20:p21:p22:p23:)"
+    Availability: "nonswift"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_datetimeDateTimeFormatBuilderWithDateTime> _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinx_datetimeDateTimeFormatBuilderWithDateTimeComponents> _Nonnull"
+    - Position: 2
+      Type: "id<SharedKotlinx_datetimeDateTimeFormatBuilderWithTime> _Nonnull"
+    - Position: 3
+      Type: "id<SharedKotlinx_datetimeDateTimeFormatBuilderWithUtcOffset> _Nonnull"
+    - Position: 4
+      Type: "SharedKotlinx_serialization_corePolymorphicKind * _Nonnull"
+    - Position: 5
+      Type: "SharedKotlinx_serialization_corePolymorphicKindOPEN * _Nonnull"
+    - Position: 6
+      Type: "SharedKotlinx_serialization_corePolymorphicKindSEALED * _Nonnull"
+    - Position: 7
+      Type: "SharedKotlinx_serialization_corePrimitiveKind * _Nonnull"
+    - Position: 8
+      Type: "SharedKotlinx_serialization_corePrimitiveKindBOOLEAN * _Nonnull"
+    - Position: 9
+      Type: "SharedKotlinx_serialization_corePrimitiveKindBYTE * _Nonnull"
+    - Position: 10
+      Type: "SharedKotlinx_serialization_corePrimitiveKindCHAR * _Nonnull"
+    - Position: 11
+      Type: "SharedKotlinx_serialization_corePrimitiveKindDOUBLE * _Nonnull"
+    - Position: 12
+      Type: "SharedKotlinx_serialization_corePrimitiveKindFLOAT * _Nonnull"
+    - Position: 13
+      Type: "SharedKotlinx_serialization_corePrimitiveKindINT * _Nonnull"
+    - Position: 14
+      Type: "SharedKotlinx_serialization_corePrimitiveKindLONG * _Nonnull"
+    - Position: 15
+      Type: "SharedKotlinx_serialization_corePrimitiveKindSHORT * _Nonnull"
+    - Position: 16
+      Type: "SharedKotlinx_serialization_corePrimitiveKindSTRING * _Nonnull"
+    - Position: 17
+      Type: "SharedKotlinx_serialization_coreSerialKindCONTEXTUAL * _Nonnull"
+    - Position: 18
+      Type: "SharedKotlinx_serialization_coreSerialKindENUM * _Nonnull"
+    - Position: 19
+      Type: "SharedKotlinx_serialization_coreStructureKind * _Nonnull"
+    - Position: 20
+      Type: "SharedKotlinx_serialization_coreStructureKindCLASS * _Nonnull"
+    - Position: 21
+      Type: "SharedKotlinx_serialization_coreStructureKindLIST * _Nonnull"
+    - Position: 22
+      Type: "SharedKotlinx_serialization_coreStructureKindMAP * _Nonnull"
+    - Position: 23
+      Type: "SharedKotlinx_serialization_coreStructureKindOBJECT * _Nonnull"
+- Name: "Shared__SkieSuspendWrappersKt"
+  SwiftName: "__SkieSuspendWrappersKt"
+  Availability: "nonswift"
+  Methods:
+  - Selector: "Skie_Suspend__0__hasNextDispatchReceiver:suspendHandler:"
+    MethodKind: "Class"
+    SwiftName: "Skie_Suspend__0__hasNext(dispatchReceiver:suspendHandler:)"
+    Availability: "nonswift"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedSkieColdFlowIterator<id> * _Nonnull"
+    - Position: 1
+      Type: "SharedSkie_SuspendHandler * _Nonnull"
+  - Selector: "Skie_Suspend__1__collectDispatchReceiver:collector:suspendHandler:"
+    MethodKind: "Class"
+    SwiftName: "Skie_Suspend__1__collect(dispatchReceiver:collector:suspendHandler:)"
+    Availability: "nonswift"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlow> _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 2
+      Type: "SharedSkie_SuspendHandler * _Nonnull"
+  - Selector: "Skie_Suspend__2__emitDispatchReceiver:value:suspendHandler:"
+    MethodKind: "Class"
+    SwiftName: "Skie_Suspend__2__emit(dispatchReceiver:value:suspendHandler:)"
+    Availability: "nonswift"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "id _Nullable"
+    - Position: 2
+      Type: "SharedSkie_SuspendHandler * _Nonnull"
+Protocols:
+- Name: "SharedKotlinIterator"
+  SwiftName: "KotlinIterator"
+  Methods:
+  - Selector: "hasNext"
+    MethodKind: "Instance"
+    SwiftName: "hasNext()"
+    ResultType: "BOOL"
+  - Selector: "next"
+    MethodKind: "Instance"
+    SwiftName: "next()"
+    ResultType: "id _Nullable"
+- Name: "SharedKotlinKClass"
+  SwiftName: "KotlinKClass"
+  Properties:
+  - Name: "qualifiedName"
+    PropertyKind: "Instance"
+    SwiftName: "qualifiedName"
+    Type: "NSString * _Nullable"
+  - Name: "simpleName"
+    PropertyKind: "Instance"
+    SwiftName: "simpleName"
+    Type: "NSString * _Nullable"
+  Methods:
+  - Selector: "isEqual:"
+    MethodKind: "Instance"
+    SwiftName: "isEqual(_:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "hash"
+    MethodKind: "Instance"
+    SwiftName: "hash()"
+    ResultType: "NSUInteger"
+  - Selector: "isInstanceValue:"
+    MethodKind: "Instance"
+    SwiftName: "isInstance(value:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+- Name: "SharedKotlinKClassifier"
+  SwiftName: "KotlinKClassifier"
+- Name: "SharedKotlinKAnnotatedElement"
+  SwiftName: "KotlinKAnnotatedElement"
+- Name: "SharedKotlinKDeclarationContainer"
+  SwiftName: "KotlinKDeclarationContainer"
+- Name: "SharedKotlinComparable"
+  SwiftName: "KotlinComparable"
+  Methods:
+  - Selector: "compareToOther:"
+    MethodKind: "Instance"
+    SwiftName: "compareTo(other:)"
+    ResultType: "int32_t"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+- Name: "SharedKotlinAnnotation"
+  SwiftName: "KotlinAnnotation"
+- Name: "SharedKotlinAppendable"
+  SwiftName: "KotlinAppendable"
+  Methods:
+  - Selector: "appendValue:"
+    MethodKind: "Instance"
+    SwiftName: "append(value:)"
+    ResultType: "id<SharedKotlinAppendable> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "unichar"
+  - Selector: "appendValue_:"
+    MethodKind: "Instance"
+    SwiftName: "append(value:)"
+    ResultType: "id<SharedKotlinAppendable> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "appendValue:startIndex:endIndex:"
+    MethodKind: "Instance"
+    SwiftName: "append(value:startIndex:endIndex:)"
+    ResultType: "id<SharedKotlinAppendable> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "int32_t"
+- Name: "SharedSkie_DispatcherDelegate"
+  SwiftName: "Skie_DispatcherDelegate"
+  SwiftPrivate: true
+  Methods:
+  - Selector: "dispatchBlock:"
+    MethodKind: "Instance"
+    SwiftName: "dispatch(block:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreRunnable> _Nonnull"
+- Name: "SharedKotlinx_coroutines_coreFlow"
+  SwiftName: "Kotlinx_coroutines_coreFlow"
+  Methods:
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedKotlinx_coroutines_coreFlowCollector"
+  SwiftName: "Kotlinx_coroutines_coreFlowCollector"
+  Methods:
+  - Selector: "emitValue:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__emit(value:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedKotlinx_coroutines_coreStateFlow"
+  SwiftName: "Kotlinx_coroutines_coreStateFlow"
+  Properties:
+  - Name: "value"
+    PropertyKind: "Instance"
+    SwiftName: "value"
+    Type: "id _Nullable"
+- Name: "SharedKotlinx_coroutines_coreSharedFlow"
+  SwiftName: "Kotlinx_coroutines_coreSharedFlow"
+  Properties:
+  - Name: "replayCache"
+    PropertyKind: "Instance"
+    SwiftName: "replayCache"
+    Type: "NSArray<id> * _Nonnull"
+  Methods:
+  - Selector: "collectCollector:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__collect(collector:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_coroutines_coreFlowCollector> _Nonnull"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+- Name: "SharedKotlinx_coroutines_coreMutableSharedFlow"
+  SwiftName: "Kotlinx_coroutines_coreMutableSharedFlow"
+  Properties:
+  - Name: "subscriptionCount"
+    PropertyKind: "Instance"
+    SwiftName: "subscriptionCount"
+    Type: "SharedSkieKotlinStateFlow<SharedInt *> * _Nonnull"
+  Methods:
+  - Selector: "emitValue:completionHandler:"
+    MethodKind: "Instance"
+    SwiftName: "__emit(value:completionHandler:)"
+    SwiftPrivate: true
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+    - Position: 1
+      Type: "void (^ _Nonnull)(NSError * _Nullable)"
+  - Selector: "resetReplayCache"
+    MethodKind: "Instance"
+    SwiftName: "resetReplayCache()"
+    ResultType: "void"
+  - Selector: "tryEmitValue:"
+    MethodKind: "Instance"
+    SwiftName: "tryEmit(value:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+- Name: "SharedKotlinx_coroutines_coreMutableStateFlow"
+  SwiftName: "Kotlinx_coroutines_coreMutableStateFlow"
+  Properties:
+  - Name: "value"
+    PropertyKind: "Instance"
+    SwiftName: "value"
+    Type: "id _Nullable"
+  Methods:
+  - Selector: "compareAndSetExpect:update:"
+    MethodKind: "Instance"
+    SwiftName: "compareAndSet(expect:update:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+    - Position: 1
+      Type: "id _Nullable"
+- Name: "SharedKotlinx_coroutines_coreRunnable"
+  SwiftName: "Kotlinx_coroutines_coreRunnable"
+  Methods:
+  - Selector: "run"
+    MethodKind: "Instance"
+    SwiftName: "run()"
+    ResultType: "void"
+- Name: "SharedKotlinx_datetimeDateTimeFormat"
+  SwiftName: "Kotlinx_datetimeDateTimeFormat"
+  Methods:
+  - Selector: "formatValue:"
+    MethodKind: "Instance"
+    SwiftName: "format(value:)"
+    ResultType: "NSString * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id _Nullable"
+  - Selector: "formatToAppendable:value:"
+    MethodKind: "Instance"
+    SwiftName: "formatTo(appendable:value:)"
+    ResultType: "id<SharedKotlinAppendable> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinAppendable> _Nonnull"
+    - Position: 1
+      Type: "id _Nullable"
+  - Selector: "parseInput:"
+    MethodKind: "Instance"
+    SwiftName: "parse(input:)"
+    ResultType: "id _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id _Nonnull"
+  - Selector: "parseOrNullInput:"
+    MethodKind: "Instance"
+    SwiftName: "parseOrNull(input:)"
+    ResultType: "id _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id _Nonnull"
+- Name: "SharedKotlinx_datetimeDateTimeFormatBuilder"
+  SwiftName: "Kotlinx_datetimeDateTimeFormatBuilder"
+  Methods:
+  - Selector: "charsValue:"
+    MethodKind: "Instance"
+    SwiftName: "chars(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+- Name: "SharedKotlinx_datetimeDateTimeFormatBuilderWithDate"
+  SwiftName: "Kotlinx_datetimeDateTimeFormatBuilderWithDate"
+  Methods:
+  - Selector: "dateFormat:"
+    MethodKind: "Instance"
+    SwiftName: "date(format:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_datetimeDateTimeFormat> _Nonnull"
+  - Selector: "dayOfMonthPadding:"
+    MethodKind: "Instance"
+    SwiftName: "dayOfMonth(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "dayOfWeekNames:"
+    MethodKind: "Instance"
+    SwiftName: "dayOfWeek(names:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimeDayOfWeekNames * _Nonnull"
+  - Selector: "monthNameNames:"
+    MethodKind: "Instance"
+    SwiftName: "monthName(names:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimeMonthNames * _Nonnull"
+  - Selector: "monthNumberPadding:"
+    MethodKind: "Instance"
+    SwiftName: "monthNumber(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "yearPadding:"
+    MethodKind: "Instance"
+    SwiftName: "year(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "yearTwoDigitsBaseYear:"
+    MethodKind: "Instance"
+    SwiftName: "yearTwoDigits(baseYear:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+- Name: "SharedKotlinx_datetimeDateTimeFormatBuilderWithDateTime"
+  SwiftName: "Kotlinx_datetimeDateTimeFormatBuilderWithDateTime"
+  Methods:
+  - Selector: "dateTimeFormat:"
+    MethodKind: "Instance"
+    SwiftName: "dateTime(format:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_datetimeDateTimeFormat> _Nonnull"
+- Name: "SharedKotlinx_datetimeDateTimeFormatBuilderWithTime"
+  SwiftName: "Kotlinx_datetimeDateTimeFormatBuilderWithTime"
+  Methods:
+  - Selector: "amPmHourPadding:"
+    MethodKind: "Instance"
+    SwiftName: "amPmHour(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "amPmMarkerAm:pm:"
+    MethodKind: "Instance"
+    SwiftName: "amPmMarker(am:pm:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+    - Position: 1
+      Type: "NSString * _Nonnull"
+  - Selector: "hourPadding:"
+    MethodKind: "Instance"
+    SwiftName: "hour(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "minutePadding:"
+    MethodKind: "Instance"
+    SwiftName: "minute(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "secondPadding:"
+    MethodKind: "Instance"
+    SwiftName: "second(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "secondFractionFixedLength:"
+    MethodKind: "Instance"
+    SwiftName: "secondFraction(fixedLength:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "secondFractionMinLength:maxLength:"
+    MethodKind: "Instance"
+    SwiftName: "secondFraction(minLength:maxLength:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "timeFormat:"
+    MethodKind: "Instance"
+    SwiftName: "time(format:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_datetimeDateTimeFormat> _Nonnull"
+- Name: "SharedKotlinx_datetimeDateTimeFormatBuilderWithDateTimeComponents"
+  SwiftName: "Kotlinx_datetimeDateTimeFormatBuilderWithDateTimeComponents"
+  Methods:
+  - Selector: "dateTimeComponentsFormat:"
+    MethodKind: "Instance"
+    SwiftName: "dateTimeComponents(format:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_datetimeDateTimeFormat> _Nonnull"
+  - Selector: "timeZoneId"
+    MethodKind: "Instance"
+    SwiftName: "timeZoneId()"
+    ResultType: "void"
+- Name: "SharedKotlinx_datetimeDateTimeFormatBuilderWithUtcOffset"
+  SwiftName: "Kotlinx_datetimeDateTimeFormatBuilderWithUtcOffset"
+  Methods:
+  - Selector: "offsetFormat:"
+    MethodKind: "Instance"
+    SwiftName: "offset(format:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_datetimeDateTimeFormat> _Nonnull"
+  - Selector: "offsetHoursPadding:"
+    MethodKind: "Instance"
+    SwiftName: "offsetHours(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "offsetMinutesOfHourPadding:"
+    MethodKind: "Instance"
+    SwiftName: "offsetMinutesOfHour(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+  - Selector: "offsetSecondsOfMinutePadding:"
+    MethodKind: "Instance"
+    SwiftName: "offsetSecondsOfMinute(padding:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "SharedKotlinx_datetimePadding * _Nonnull"
+- Name: "SharedKotlinx_serialization_coreKSerializer"
+  SwiftName: "Kotlinx_serialization_coreKSerializer"
+  Properties:
+  - Name: "descriptor"
+    PropertyKind: "Instance"
+    SwiftName: "descriptor"
+    Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+- Name: "SharedKotlinx_serialization_coreDeserializationStrategy"
+  SwiftName: "Kotlinx_serialization_coreDeserializationStrategy"
+  Properties:
+  - Name: "descriptor"
+    PropertyKind: "Instance"
+    SwiftName: "descriptor"
+    Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  Methods:
+  - Selector: "deserializeDecoder:"
+    MethodKind: "Instance"
+    SwiftName: "deserialize(decoder:)"
+    ResultType: "id _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreDecoder> _Nonnull"
+- Name: "SharedKotlinx_serialization_coreDecoder"
+  SwiftName: "Kotlinx_serialization_coreDecoder"
+  Properties:
+  - Name: "serializersModule"
+    PropertyKind: "Instance"
+    SwiftName: "serializersModule"
+    Type: "SharedKotlinx_serialization_coreSerializersModule * _Nonnull"
+  Methods:
+  - Selector: "beginStructureDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "beginStructure(descriptor:)"
+    ResultType: "id<SharedKotlinx_serialization_coreCompositeDecoder> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  - Selector: "decodeBoolean"
+    MethodKind: "Instance"
+    SwiftName: "decodeBoolean()"
+    ResultType: "BOOL"
+  - Selector: "decodeByte"
+    MethodKind: "Instance"
+    SwiftName: "decodeByte()"
+    ResultType: "int8_t"
+  - Selector: "decodeChar"
+    MethodKind: "Instance"
+    SwiftName: "decodeChar()"
+    ResultType: "unichar"
+  - Selector: "decodeDouble"
+    MethodKind: "Instance"
+    SwiftName: "decodeDouble()"
+    ResultType: "double"
+  - Selector: "decodeEnumEnumDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "decodeEnum(enumDescriptor:)"
+    ResultType: "int32_t"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  - Selector: "decodeFloat"
+    MethodKind: "Instance"
+    SwiftName: "decodeFloat()"
+    ResultType: "float"
+  - Selector: "decodeInlineDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "decodeInline(descriptor:)"
+    ResultType: "id<SharedKotlinx_serialization_coreDecoder> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  - Selector: "decodeInt"
+    MethodKind: "Instance"
+    SwiftName: "decodeInt()"
+    ResultType: "int32_t"
+  - Selector: "decodeLong"
+    MethodKind: "Instance"
+    SwiftName: "decodeLong()"
+    ResultType: "int64_t"
+  - Selector: "decodeNotNullMark"
+    MethodKind: "Instance"
+    SwiftName: "decodeNotNullMark()"
+    ResultType: "BOOL"
+  - Selector: "decodeNull"
+    MethodKind: "Instance"
+    SwiftName: "decodeNull()"
+    ResultType: "SharedKotlinNothing * _Nullable"
+  - Selector: "decodeNullableSerializableValueDeserializer:"
+    MethodKind: "Instance"
+    SwiftName: "decodeNullableSerializableValue(deserializer:)"
+    ResultType: "id _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreDeserializationStrategy> _Nonnull"
+  - Selector: "decodeSerializableValueDeserializer:"
+    MethodKind: "Instance"
+    SwiftName: "decodeSerializableValue(deserializer:)"
+    ResultType: "id _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreDeserializationStrategy> _Nonnull"
+  - Selector: "decodeShort"
+    MethodKind: "Instance"
+    SwiftName: "decodeShort()"
+    ResultType: "int16_t"
+  - Selector: "decodeString"
+    MethodKind: "Instance"
+    SwiftName: "decodeString()"
+    ResultType: "NSString * _Nonnull"
+- Name: "SharedKotlinx_serialization_coreSerialDescriptor"
+  SwiftName: "Kotlinx_serialization_coreSerialDescriptor"
+  Properties:
+  - Name: "annotations"
+    PropertyKind: "Instance"
+    SwiftName: "annotations"
+    Type: "NSArray<id<SharedKotlinAnnotation>> * _Nonnull"
+  - Name: "elementsCount"
+    PropertyKind: "Instance"
+    SwiftName: "elementsCount"
+    Type: "int32_t"
+  - Name: "isInline"
+    PropertyKind: "Instance"
+    SwiftName: "isInline"
+    Type: "BOOL"
+  - Name: "isNullable"
+    PropertyKind: "Instance"
+    SwiftName: "isNullable"
+    Type: "BOOL"
+  - Name: "kind"
+    PropertyKind: "Instance"
+    SwiftName: "kind"
+    Type: "SharedKotlinx_serialization_coreSerialKind * _Nonnull"
+  - Name: "serialName"
+    PropertyKind: "Instance"
+    SwiftName: "serialName"
+    Type: "NSString * _Nonnull"
+  Methods:
+  - Selector: "getElementAnnotationsIndex:"
+    MethodKind: "Instance"
+    SwiftName: "getElementAnnotations(index:)"
+    ResultType: "NSArray<id<SharedKotlinAnnotation>> * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "getElementDescriptorIndex:"
+    MethodKind: "Instance"
+    SwiftName: "getElementDescriptor(index:)"
+    ResultType: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "getElementIndexName:"
+    MethodKind: "Instance"
+    SwiftName: "getElementIndex(name:)"
+    ResultType: "int32_t"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+  - Selector: "getElementNameIndex:"
+    MethodKind: "Instance"
+    SwiftName: "getElementName(index:)"
+    ResultType: "NSString * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "isElementOptionalIndex:"
+    MethodKind: "Instance"
+    SwiftName: "isElementOptional(index:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+- Name: "SharedKotlinx_serialization_coreCompositeDecoder"
+  SwiftName: "Kotlinx_serialization_coreCompositeDecoder"
+  Properties:
+  - Name: "serializersModule"
+    PropertyKind: "Instance"
+    SwiftName: "serializersModule"
+    Type: "SharedKotlinx_serialization_coreSerializersModule * _Nonnull"
+  Methods:
+  - Selector: "decodeBooleanElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeBooleanElement(descriptor:index:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeByteElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeByteElement(descriptor:index:)"
+    ResultType: "int8_t"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeCharElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeCharElement(descriptor:index:)"
+    ResultType: "unichar"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeCollectionSizeDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "decodeCollectionSize(descriptor:)"
+    ResultType: "int32_t"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  - Selector: "decodeDoubleElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeDoubleElement(descriptor:index:)"
+    ResultType: "double"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeElementIndexDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "decodeElementIndex(descriptor:)"
+    ResultType: "int32_t"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  - Selector: "decodeFloatElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeFloatElement(descriptor:index:)"
+    ResultType: "float"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeInlineElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeInlineElement(descriptor:index:)"
+    ResultType: "id<SharedKotlinx_serialization_coreDecoder> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeIntElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeIntElement(descriptor:index:)"
+    ResultType: "int32_t"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeLongElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeLongElement(descriptor:index:)"
+    ResultType: "int64_t"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeNullableSerializableElementDescriptor:index:deserializer:previousValue:"
+    MethodKind: "Instance"
+    SwiftName: "decodeNullableSerializableElement(descriptor:index:deserializer:previousValue:)"
+    ResultType: "id _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "id<SharedKotlinx_serialization_coreDeserializationStrategy> _Nonnull"
+    - Position: 3
+      Type: "id _Nullable"
+  - Selector: "decodeSequentially"
+    MethodKind: "Instance"
+    SwiftName: "decodeSequentially()"
+    ResultType: "BOOL"
+  - Selector: "decodeSerializableElementDescriptor:index:deserializer:previousValue:"
+    MethodKind: "Instance"
+    SwiftName: "decodeSerializableElement(descriptor:index:deserializer:previousValue:)"
+    ResultType: "id _Nullable"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "id<SharedKotlinx_serialization_coreDeserializationStrategy> _Nonnull"
+    - Position: 3
+      Type: "id _Nullable"
+  - Selector: "decodeShortElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeShortElement(descriptor:index:)"
+    ResultType: "int16_t"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "decodeStringElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "decodeStringElement(descriptor:index:)"
+    ResultType: "NSString * _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "endStructureDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "endStructure(descriptor:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+- Name: "SharedKotlinx_serialization_coreSerializationStrategy"
+  SwiftName: "Kotlinx_serialization_coreSerializationStrategy"
+  Properties:
+  - Name: "descriptor"
+    PropertyKind: "Instance"
+    SwiftName: "descriptor"
+    Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  Methods:
+  - Selector: "serializeEncoder:value:"
+    MethodKind: "Instance"
+    SwiftName: "serialize(encoder:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreEncoder> _Nonnull"
+    - Position: 1
+      Type: "id _Nullable"
+- Name: "SharedKotlinx_serialization_coreEncoder"
+  SwiftName: "Kotlinx_serialization_coreEncoder"
+  Properties:
+  - Name: "serializersModule"
+    PropertyKind: "Instance"
+    SwiftName: "serializersModule"
+    Type: "SharedKotlinx_serialization_coreSerializersModule * _Nonnull"
+  Methods:
+  - Selector: "beginCollectionDescriptor:collectionSize:"
+    MethodKind: "Instance"
+    SwiftName: "beginCollection(descriptor:collectionSize:)"
+    ResultType: "id<SharedKotlinx_serialization_coreCompositeEncoder> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "beginStructureDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "beginStructure(descriptor:)"
+    ResultType: "id<SharedKotlinx_serialization_coreCompositeEncoder> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  - Selector: "encodeBooleanValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeBoolean(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "BOOL"
+  - Selector: "encodeByteValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeByte(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int8_t"
+  - Selector: "encodeCharValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeChar(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "unichar"
+  - Selector: "encodeDoubleValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeDouble(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "double"
+  - Selector: "encodeEnumEnumDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "encodeEnum(enumDescriptor:index:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "encodeFloatValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeFloat(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "float"
+  - Selector: "encodeInlineDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "encodeInline(descriptor:)"
+    ResultType: "id<SharedKotlinx_serialization_coreEncoder> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  - Selector: "encodeIntValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeInt(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int32_t"
+  - Selector: "encodeLongValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeLong(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int64_t"
+  - Selector: "encodeNotNullMark"
+    MethodKind: "Instance"
+    SwiftName: "encodeNotNullMark()"
+    ResultType: "void"
+  - Selector: "encodeNull"
+    MethodKind: "Instance"
+    SwiftName: "encodeNull()"
+    ResultType: "void"
+  - Selector: "encodeNullableSerializableValueSerializer:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeNullableSerializableValue(serializer:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerializationStrategy> _Nonnull"
+    - Position: 1
+      Type: "id _Nullable"
+  - Selector: "encodeSerializableValueSerializer:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeSerializableValue(serializer:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerializationStrategy> _Nonnull"
+    - Position: 1
+      Type: "id _Nullable"
+  - Selector: "encodeShortValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeShort(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "int16_t"
+  - Selector: "encodeStringValue:"
+    MethodKind: "Instance"
+    SwiftName: "encodeString(value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "NSString * _Nonnull"
+- Name: "SharedKotlinx_serialization_coreCompositeEncoder"
+  SwiftName: "Kotlinx_serialization_coreCompositeEncoder"
+  Properties:
+  - Name: "serializersModule"
+    PropertyKind: "Instance"
+    SwiftName: "serializersModule"
+    Type: "SharedKotlinx_serialization_coreSerializersModule * _Nonnull"
+  Methods:
+  - Selector: "encodeBooleanElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeBooleanElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "BOOL"
+  - Selector: "encodeByteElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeByteElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "int8_t"
+  - Selector: "encodeCharElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeCharElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "unichar"
+  - Selector: "encodeDoubleElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeDoubleElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "double"
+  - Selector: "encodeFloatElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeFloatElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "float"
+  - Selector: "encodeInlineElementDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "encodeInlineElement(descriptor:index:)"
+    ResultType: "id<SharedKotlinx_serialization_coreEncoder> _Nonnull"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+  - Selector: "encodeIntElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeIntElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "int32_t"
+  - Selector: "encodeLongElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeLongElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "int64_t"
+  - Selector: "encodeNullableSerializableElementDescriptor:index:serializer:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeNullableSerializableElement(descriptor:index:serializer:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "id<SharedKotlinx_serialization_coreSerializationStrategy> _Nonnull"
+    - Position: 3
+      Type: "id _Nullable"
+  - Selector: "encodeSerializableElementDescriptor:index:serializer:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeSerializableElement(descriptor:index:serializer:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "id<SharedKotlinx_serialization_coreSerializationStrategy> _Nonnull"
+    - Position: 3
+      Type: "id _Nullable"
+  - Selector: "encodeShortElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeShortElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "int16_t"
+  - Selector: "encodeStringElementDescriptor:index:value:"
+    MethodKind: "Instance"
+    SwiftName: "encodeStringElement(descriptor:index:value:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+    - Position: 2
+      Type: "NSString * _Nonnull"
+  - Selector: "endStructureDescriptor:"
+    MethodKind: "Instance"
+    SwiftName: "endStructure(descriptor:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+  - Selector: "shouldEncodeElementDefaultDescriptor:index:"
+    MethodKind: "Instance"
+    SwiftName: "shouldEncodeElementDefault(descriptor:index:)"
+    ResultType: "BOOL"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinx_serialization_coreSerialDescriptor> _Nonnull"
+    - Position: 1
+      Type: "int32_t"
+- Name: "SharedKotlinx_serialization_coreSerializersModuleCollector"
+  SwiftName: "Kotlinx_serialization_coreSerializersModuleCollector"
+  Methods:
+  - Selector: "contextualKClass:serializer:"
+    MethodKind: "Instance"
+    SwiftName: "contextual(kClass:serializer:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinx_serialization_coreKSerializer> _Nonnull"
+  - Selector: "contextualKClass:provider:"
+    MethodKind: "Instance"
+    SwiftName: "contextual(kClass:provider:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinx_serialization_coreKSerializer> _Nonnull (^ _Nonnull)(NSArray<id<SharedKotlinx_serialization_coreKSerializer>> * _Nonnull)"
+  - Selector: "polymorphicBaseClass:actualClass:actualSerializer:"
+    MethodKind: "Instance"
+    SwiftName: "polymorphic(baseClass:actualClass:actualSerializer:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 2
+      Type: "id<SharedKotlinx_serialization_coreKSerializer> _Nonnull"
+  - Selector: "polymorphicDefaultBaseClass:defaultDeserializerProvider:"
+    MethodKind: "Instance"
+    SwiftName: "polymorphicDefault(baseClass:defaultDeserializerProvider:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinx_serialization_coreDeserializationStrategy> _Nullable (^ _Nonnull)(NSString * _Nullable)"
+  - Selector: "polymorphicDefaultDeserializerBaseClass:defaultDeserializerProvider:"
+    MethodKind: "Instance"
+    SwiftName: "polymorphicDefaultDeserializer(baseClass:defaultDeserializerProvider:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinx_serialization_coreDeserializationStrategy> _Nullable (^ _Nonnull)(NSString * _Nullable)"
+  - Selector: "polymorphicDefaultSerializerBaseClass:defaultSerializerProvider:"
+    MethodKind: "Instance"
+    SwiftName: "polymorphicDefaultSerializer(baseClass:defaultSerializerProvider:)"
+    ResultType: "void"
+    Parameters:
+    - Position: 0
+      Type: "id<SharedKotlinKClass> _Nonnull"
+    - Position: 1
+      Type: "id<SharedKotlinx_serialization_coreSerializationStrategy> _Nullable (^ _Nonnull)(id _Nonnull)"
