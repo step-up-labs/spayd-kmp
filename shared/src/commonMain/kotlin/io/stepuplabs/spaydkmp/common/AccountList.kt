@@ -1,5 +1,8 @@
 package io.stepuplabs.spaydkmp.common
 
+/*
+Representation of multiple Accounts
+ */
 data class AccountList(
     val accounts: List<Account>
 ) {

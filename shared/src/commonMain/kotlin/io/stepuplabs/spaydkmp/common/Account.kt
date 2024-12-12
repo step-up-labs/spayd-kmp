@@ -1,5 +1,8 @@
 package io.stepuplabs.spaydkmp.common
 
+/*
+Account representation
+ */
 data class Account(
     val iban: String,
     val bic: String? = null,

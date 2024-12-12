@@ -4,7 +4,12 @@ import io.stepuplabs.spaydkmp.exception.ValidationException
 import io.stepuplabs.spaydkmp.formatter.Formatter
 import kotlin.math.min
 
+/*
+Utility class for creation an IBAN code from account prefix, account number and bank code
+This works only for Czech banking system
+ */
 class IBAN {
+    // Generate IBAN code for Czech account
     @Throws(ValidationException::class)
     fun createForCzechAccount(prefix: Long?, account: Long, bank: Long): String {
         var isValid = false
@@ -56,6 +61,7 @@ class IBAN {
         return "CZ" + Formatter.format("%02d", checksum) + bankFormatted + prefixFormatted + accountFormatted
     }
 
+    // Validate account prefix and account number
     private fun validateEleven(value: Long): Boolean {
         val number = value.toString()
         var weight = 1

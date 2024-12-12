@@ -11,14 +11,19 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.format
 import net.thauvin.erik.urlencoder.UrlEncoderUtil
 
+/*
+Class that represents and generates SPAYD
+ */
 @Suppress("UNUSED")
 class Spayd(
     private vararg val parameters: Pair<Key, Any>?
 ) {
+    // Convenience constructor that accepts map of parameters
     constructor(parameters: Map<Key, Any>): this(
         parameters = parameters.mapNotNull { it.key to it.value }.toTypedArray()
     )
 
+    // Convenience constructor that accepts all values in form of named parameters
     constructor(
         account: Account,
         alternateAccounts: AccountList? = null,
@@ -60,6 +65,7 @@ class Spayd(
         )
     )
 
+    // Validate parameters and generate SPAYD string from them
     override fun toString(): String {
         validateParameters()
 
@@ -86,6 +92,7 @@ class Spayd(
         return spayd.toString().uppercase()
     }
 
+    // Validate all entered parameters
     @Throws(ValidationException::class)
     private fun validateParameters() {
         if (parameters.isEmpty()) {
@@ -118,6 +125,7 @@ class Spayd(
         }
     }
 
+    // Get parameter:value key for SPAYD
     private fun getEntry(parameter: String, value: Any?): String? {
         if (value == null) {
             return null
@@ -126,6 +134,7 @@ class Spayd(
         return "$parameter:$value"
     }
 
+    // Get parameter:value key for SPAYD
     private fun getEntry(parameter: String, values: Array<Any>?): String? {
         if (values.isNullOrEmpty()) {
             return null
@@ -145,7 +154,7 @@ class Spayd(
         return "$parameter:$entries"
     }
 
-
+    // Get parameter:value key for SPAYD
     private fun getEntry(parameter: String, date: LocalDate?): String? {
         if (date == null) {
             return null
@@ -154,6 +163,7 @@ class Spayd(
         return "$parameter:${date.format(LocalDate.Formats.ISO_BASIC)}"
     }
 
+    // Sanitize values for SPAYD
     private fun escape(value: String): String {
         val escapedValue = StringBuilder()
 
@@ -176,12 +186,11 @@ class Spayd(
         return escapedValue.toString()
     }
 
-    private fun digitsOf(value: Int): Int =  log10((value).toDouble()).toInt() + 1
-
     companion object {
         const val MIME_TYPE: String = "application/x-shortpaymentdescriptor"
+        const val FILE_EXTENSION: String = "spayd"
 
-        const val HEADER_TYPE: String = "SPD"
-        const val HEADER_VERSION: String = "1.0"
+        private const val HEADER_TYPE: String = "SPD"
+        private const val HEADER_VERSION: String = "1.0"
     }
 }

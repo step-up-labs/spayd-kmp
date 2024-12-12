@@ -4,7 +4,11 @@ import io.stepuplabs.spaydkmp.exception.ValidationException
 import kotlinx.datetime.LocalDate
 import kotlin.math.log10
 
+/*
+Validator that validates given value against its definition
+ */
 internal class Validator {
+    // Validate value
     @Throws(ValidationException::class)
     fun validate(value: Any, key: Key): Boolean {
         if (!key.type.isInstance(value)) {
@@ -125,6 +129,9 @@ internal class Validator {
         return true
     }
 
+    // Calculate number of digits for integer value
     private fun digitsOf(value: Int): Int =  log10((value).toDouble()).toInt() + 1
+
+    // Calculate number of digits for long value
     private fun digitsOf(value: Long): Int =  log10((value).toDouble()).toInt() + 1
 }

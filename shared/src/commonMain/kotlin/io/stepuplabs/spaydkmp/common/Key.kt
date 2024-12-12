@@ -3,6 +3,9 @@ package io.stepuplabs.spaydkmp.common
 import kotlinx.datetime.LocalDate
 import kotlin.reflect.KClass
 
+/*
+Specification of a parameter
+ */
 @Suppress("UNUSED")
 enum class Key(
     val key: String,
