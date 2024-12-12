@@ -1,13 +1,10 @@
-package io.stepuplabs.spaydkmp.value
+package io.stepuplabs.spaydkmp.common
 
-import io.stepuplabs.spaydkmp.common.Account
-import io.stepuplabs.spaydkmp.common.AccountList
-import io.stepuplabs.spaydkmp.common.NotificationType
 import kotlinx.datetime.LocalDate
 import kotlin.reflect.KClass
 
 @Suppress("UNUSED")
-enum class Kind(
+enum class Key(
     val key: String,
     val type: KClass<*>,
     val minValue: Double? = null,

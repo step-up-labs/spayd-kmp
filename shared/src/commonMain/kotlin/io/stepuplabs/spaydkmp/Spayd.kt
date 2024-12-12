@@ -2,10 +2,10 @@ package io.stepuplabs.spaydkmp
 
 import io.stepuplabs.spaydkmp.common.Account
 import io.stepuplabs.spaydkmp.common.AccountList
+import io.stepuplabs.spaydkmp.common.Key
 import io.stepuplabs.spaydkmp.common.NotificationType
+import io.stepuplabs.spaydkmp.common.Validator
 import io.stepuplabs.spaydkmp.exception.*
-import io.stepuplabs.spaydkmp.value.Kind
-import io.stepuplabs.spaydkmp.value.Value
 import kotlin.math.log10
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.format
@@ -13,8 +13,12 @@ import net.thauvin.erik.urlencoder.UrlEncoderUtil
 
 @Suppress("UNUSED")
 class Spayd(
-    private vararg val values: Value?
+    private vararg val parameters: Pair<Key, Any>?
 ) {
+    constructor(parameters: Map<Key, Any>): this(
+        parameters = parameters.mapNotNull { it.key to it.value }.toTypedArray()
+    )
+
     constructor(
         account: Account,
         alternateAccounts: AccountList? = null,
@@ -34,30 +38,30 @@ class Spayd(
         identifier: String? = null,
         url: String? = null,
     ): this(
-        values = arrayOf(
-            Value(kind = Kind.ACCOUNT, value = account),
-            alternateAccounts?.let { Value(kind = Kind.ALTERNATE_ACCOUNTS, value = it) },
-            currency?.let { Value(kind = Kind.CURRENCY, value = it) },
-            amount?.let { Value(kind = Kind.AMOUNT, value = it) },
-            date?.let { Value(kind = Kind.DATE, value = it) },
-            senderReference?.let { Value(kind = Kind.SENDER_REFERENCE, value = it) },
-            recipientName?.let { Value(kind = Kind.RECIPIENT_NAME, value = it) },
-            paymentType?.let { Value(kind = Kind.PAYMENT_TYPE, value = it) },
-            message?.let { Value(kind = Kind.MESSAGE, value = it) },
-            notificationType?.let { Value(kind = Kind.NOTIFY_TYPE, value = it) },
-            notificationAddress?.let { Value(kind = Kind.NOTIFY_ADDRESS, value = it) },
-            repeat?.let { Value(kind = Kind.REPEAT, value = it) },
-            variableSymbol?.let { Value(kind = Kind.VARIABLE_SYMBOL, value = it) },
-            specificSymbol?.let { Value(kind = Kind.SPECIFIC_SYMBOL, value = it) },
-            constantSymbol?.let { Value(kind = Kind.CONSTANT_SYMBOL, value = it) },
-            identifier?.let { Value(kind = Kind.IDENTIFIER, value = it) },
-            url?.let { Value(kind = Kind.URL, value = it) },
+        parameters = arrayOf(
+            Key.ACCOUNT to account,
+            alternateAccounts?.let { Key.ALTERNATE_ACCOUNTS to it },
+            alternateAccounts?.let { Key.ALTERNATE_ACCOUNTS to it },
+            currency?.let { Key.CURRENCY to it },
+            amount?.let { Key.AMOUNT to it },
+            date?.let { Key.DATE to it },
+            senderReference?.let { Key.SENDER_REFERENCE to it },
+            recipientName?.let { Key.RECIPIENT_NAME to it },
+            paymentType?.let { Key.PAYMENT_TYPE to it },
+            message?.let { Key.MESSAGE to it },
+            notificationType?.let { Key.NOTIFY_TYPE to it },
+            notificationAddress?.let { Key.NOTIFY_ADDRESS to it },
+            repeat?.let { Key.REPEAT to it },
+            variableSymbol?.let { Key.VARIABLE_SYMBOL to it },
+            specificSymbol?.let { Key.SPECIFIC_SYMBOL to it },
+            constantSymbol?.let { Key.CONSTANT_SYMBOL to it },
+            identifier?.let { Key.IDENTIFIER to it },
+            url?.let { Key.URL to it },
         )
     )
 
-    @Throws(ValidationException::class)
-    fun generate(): String {
-        validateValueSet()
+    override fun toString(): String {
+        validateParameters()
 
         val parts: MutableList<String> = mutableListOf()
 
@@ -66,8 +70,8 @@ class Spayd(
         parts.add(HEADER_VERSION)
 
         // payment parameters
-        for (value in values.filterNotNull()) {
-            getEntry(value.kind.key, value.value)?.let { parts.add(it) }
+        for (parameter in parameters.filterNotNull()) {
+            getEntry(parameter.first.key, parameter.second)?.let { parts.add(it) }
         }
 
         // merge into one string
@@ -83,22 +87,24 @@ class Spayd(
     }
 
     @Throws(ValidationException::class)
-    private fun validateValueSet() {
-        if (values.isEmpty()) {
+    private fun validateParameters() {
+        if (parameters.isEmpty()) {
             throw ValidationException("At least account has to be specified")
         }
+
+        val validator = Validator()
 
         var hasAccount = false
         var hasNotificationType = false
         var hasNotificationAddress = false
 
-        for (value in values.filterNotNull()) {
-            value.validate()
+        for (parameter in parameters.filterNotNull()) {
+            validator.validate(key = parameter.first, value = parameter.second)
 
-            when (value.kind) {
-                Kind.ACCOUNT -> hasAccount = true
-                Kind.NOTIFY_TYPE -> hasNotificationType = true
-                Kind.NOTIFY_ADDRESS -> hasNotificationAddress = true
+            when (parameter.first) {
+                Key.ACCOUNT -> hasAccount = true
+                Key.NOTIFY_TYPE -> hasNotificationType = true
+                Key.NOTIFY_ADDRESS -> hasNotificationAddress = true
                 else -> continue
             }
         }
