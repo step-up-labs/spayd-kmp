@@ -53,8 +53,6 @@ kotlin {
             implementation(libs.kotlin.test.annotations)
         }
     }
-
-    withSourcesJar(publish = false) // TODO: remove for publishing, when done change build.sh
 }
 
 android {
@@ -77,18 +75,19 @@ skie {
     }
 }
 
-publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/stepuplabs/bank-app-payment-poc")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
-}
+// TODO: Update for Maven Central
+// publishing {
+//    repositories {
+//        maven {
+//            name = "GitHubPackages"
+//            url = uri("https://maven.pkg.github.com/stepuplabs/bank-app-payment-poc")
+//            credentials {
+//                username = System.getenv("GITHUB_ACTOR")
+//                password = System.getenv("GITHUB_TOKEN")
+//            }
+//        }
+//    }
+//}
 
 afterEvaluate {
     configure<PublishingExtension> {
