@@ -1,0 +1,63 @@
+name: Publish Android & iOS artifacts after release
+on:
+  release:
+    types: [published]
+jobs:
+  publish-android:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Publish package
+        run: ./gradlew publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_RELEASE_VERSION: ${{ github.event.release.name }}
+  build-ios:
+    runs-on: macos-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Build .xcf
+        run: ./gradlew assembleXCFramework
+        env:
+          GITHUB_RELEASE_VERSION: ${{ github.event.release.name }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcf
+          path: shared/build/XCFrameworks/release/shared.xcframework
+  publish-ios:
+    needs: build-ios
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: xcf
+          path: xcf
+      - name: Push xcf to publishing repository
+        uses: cpina/github-action-push-to-another-repository@v1.7.2
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN_GITHUB }}
+        with:
+          source-directory: 'xcf'
+          destination-github-username: 'step-up-labs'
+          destination-repository-name: 'spayd-kmp-spm'
+          user-name: 'GitHub Actions'
+          target-directory: 'spaydkmp.xcframework'
