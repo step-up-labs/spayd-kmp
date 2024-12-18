@@ -25,7 +25,7 @@ kotlin {
         publishLibraryVariants("release")
     }
 
-    val xcf = XCFramework()
+    val xcf = XCFramework("spaydkmp")
 
     listOf(
         iosX64(),
@@ -33,7 +33,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "shared"
+            baseName = "spaydkmp"
             isStatic = true
 
             xcf.add(this)

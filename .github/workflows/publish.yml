@@ -35,14 +35,14 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Build .xcf
-        run: ./gradlew assembleXCFramework
+        run: ./gradlew assembleSpaydkmpXCFramework
         env:
           GITHUB_RELEASE_VERSION: ${{ github.event.release.name }}
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: xcf
-          path: shared/build/XCFrameworks/release/shared.xcframework
+          path: shared/build/XCFrameworks/release/spaydkmp.xcframework
   publish-ios:
     needs: build-ios
     runs-on: ubuntu-latest
