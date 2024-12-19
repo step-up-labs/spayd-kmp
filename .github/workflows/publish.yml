@@ -52,7 +52,7 @@ jobs:
           name: xcf
           path: xcf
       - name: Push xcf to publishing repository
-        uses: cpina/github-action-push-to-another-repository@v1.7.2
+        uses: FlowerAce/git-push@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN_GITHUB }}
         with:
@@ -61,3 +61,4 @@ jobs:
           destination-repository-name: 'spayd-kmp-spm'
           user-name: 'GitHub Actions'
           target-directory: 'spaydkmp.xcframework'
+          tag-name: ${{ github.event.release.name }}
