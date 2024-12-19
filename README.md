@@ -1,6 +1,6 @@
 # SPAYD for KMP
 
-[Short Payment Descriptor](https://cs.wikipedia.org/wiki/Short_Payment_Descriptor) generator for Kotlin Multiplatform. Generated SPAYD can be [forwarded to bank application](https://github.com/step-up-labs/pay-via-bank-app) or used to generate QR code.
+[Short Payment Descriptor](https://cs.wikipedia.org/wiki/Short_Payment_Descriptor) generator for Kotlin Multiplatform. Generated SPAYD can be [forwarded to a bank application](https://github.com/step-up-labs/pay-via-bank-app) or used to generate a QR code.
 
 ## Integration
 
@@ -24,14 +24,14 @@ Add a new entry into `dependencies`: `.package(url: "https://github.com/step-up-
 
 ## Usage
 
-Create `Spayd` instance. The only mandatory parameter is an `account`. Example:
+Create `Spayd` instance. The only mandatory parameter is `account`. Example:
 
 ```kotlin
 val spayd = Spayd(
-    account = Account(iban = "IBAN"),
-    amount = 666.00,
+    account = Account(iban = "CZ7603000000000076327632"),
+    amount = 500.00,
     currency = "CZK",
-    message = "Diabolical",
+    message = "Clovek v tisni",
 )
 ```
 
@@ -41,15 +41,15 @@ Then call:
 val spaydString = spayd.toString()
 ```
 
-This will validate data and possibly throw `ValidationException` with short message describing first problem it encountered in case there is any issue.
+This will validate data and possibly throw `ValidationException` with a short message describing the first problem it encountered.
 
 ### Alternative constructors
 ```kotlin
 val spayd = Spayd(
-    Key.ACCOUNT to Account(iban = "IBAN"),
-    Key.AMOUNT to 666.00,
+    Key.ACCOUNT to Account(iban = "CZ7603000000000076327632"),
+    Key.AMOUNT to 500.00,
     Key.CURRENCY to "CZK",
-    Key.MESSAGE to "Diabolical",
+    Key.MESSAGE to "Clovek v tisni",
 )
 ```
 
@@ -57,10 +57,10 @@ or
 
 ```kotlin
 val parameters: Map<Key, Any> = mapOf(
-    Key.ACCOUNT to Account(iban = "IBAN"),
-    Key.AMOUNT to 666.00,
+    Key.ACCOUNT to Account(iban = "CZ7603000000000076327632"),
+    Key.AMOUNT to 500.00,
     Key.CURRENCY to "CZK",
-    Key.MESSAGE to "Diabolical",
+    Key.MESSAGE to "Clovek v tisni",
 )
 
 val spayd = Spayd(parameters)
@@ -68,4 +68,4 @@ val spayd = Spayd(parameters)
 
 ## Contributing
 
-For any contributions, make sure all unit tests pass. Ideally add a new unit tests. Any contributions via pull requests are welcome.
+For any contributions, make sure all unit tests pass. Ideally, add one or more new unit tests. Any contributions via pull requests are welcome.
