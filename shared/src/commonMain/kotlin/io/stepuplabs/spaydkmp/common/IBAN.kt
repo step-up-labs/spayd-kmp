@@ -22,7 +22,7 @@ class IBAN {
             throw ValidationException(message = "Account prefix & number: Invalid value")
         }
 
-        val prefixFormatted: String = Formatter.format("%06d", prefix ?: "000000")
+        val prefixFormatted: String = Formatter.format("%06d", prefix ?: 0)
         val accountFormatted: String = Formatter.format("%010d", account)
         val bankFormatted: String = Formatter.format("%04d", bank)
 
@@ -58,7 +58,8 @@ class IBAN {
         }
         checksum = 98 - checksum
 
-        return "CZ" + Formatter.format("%02d", checksum) + bankFormatted + prefixFormatted + accountFormatted
+        val accountForIban = Formatter.format("%02d", checksum) + bankFormatted + prefixFormatted + accountFormatted
+        return "CZ$accountForIban"
     }
 
     // Validate account prefix and account number
@@ -67,7 +68,7 @@ class IBAN {
         var weight = 1
         var sum = 0
 
-        for (i in 0.. number.length step -1) {
+        for (i in number.length - 1 downTo 0 step 1) {
             sum += (number[i] - '0') * weight
             weight *= 2
         }
