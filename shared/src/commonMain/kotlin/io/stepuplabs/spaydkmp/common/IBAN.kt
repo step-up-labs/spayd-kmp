@@ -12,7 +12,7 @@ class IBAN {
     // Generate IBAN code for Czech account
     @Throws(ValidationException::class)
     fun createForCzechAccount(prefix: Long?, account: Long, bank: Long): String {
-        var isValid = false
+        var isValid = true
         if (prefix != null) {
             isValid = validateEleven(prefix)
         }
