@@ -17,10 +17,13 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Publish package
-        run: ./gradlew publish
+        run: ./gradlew deployCentralPortal
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_RELEASE_VERSION: ${{ github.event.release.name }}
+          MAVEN_CENTRAL_SIGNING_KEY: ${{ secrets.MAVEN_CENTRAL_SIGNING_KEY }}
+          MAVEN_CENTRAL_SIGNING_PASSPHRASE: ${{ secrets.MAVEN_CENTRAL_SIGNING_PASSPHRASE }}
+          MAVEN_CENTRAL_UPLOAD_USERNAME: ${{ secrets.MAVEN_CENTRAL_UPLOAD_USERNAME }}
+          MAVEN_CENTRAL_UPLOAD_PASSWORD: ${{ secrets.MAVEN_CENTRAL_UPLOAD_PASSWORD }}
   build-ios:
     runs-on: macos-latest
     permissions:

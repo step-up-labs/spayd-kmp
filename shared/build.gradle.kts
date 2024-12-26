@@ -5,11 +5,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
-    id("maven-publish")
-
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.skie)
+    alias(libs.plugins.mavenDeployer)
 }
 
 group = "io.stepuplabs.spaydkmp"
@@ -17,12 +16,6 @@ version = System.getenv("GITHUB_RELEASE_VERSION") ?: "SNAPSHOT"
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_21)
-        }
-
-        publishLibraryVariants("release")
     }
 
     val xcf = XCFramework("spaydkmp")
@@ -75,28 +68,27 @@ skie {
     }
 }
 
-// TODO: Update for Maven Central
-// publishing {
-//    repositories {
-//        maven {
-//            name = "GitHubPackages"
-//            url = uri("https://maven.pkg.github.com/stepuplabs/bank-app-payment-poc")
-//            credentials {
-//                username = System.getenv("GITHUB_ACTOR")
-//                password = System.getenv("GITHUB_TOKEN")
-//            }
-//        }
-//    }
-//}
-
-afterEvaluate {
-    configure<PublishingExtension> {
-        publications.all {
-            val mavenPublication = this as? MavenPublication
-            // rename artifactId from default one
-            if (mavenPublication?.artifactId == "shared-android") {
-                mavenPublication.artifactId = "android"
-            }
+deployer {
+    content {
+        androidComponents("release") {
+            kotlinSources()
+            emptyDocs()
         }
+    }
+    projectInfo {
+        artifactId = "spaydkmp"
+        description = "Kotlin Multiplatform library for generating Short Payment Descriptor (SPAYD)."
+        url = "https://github.com/step-up-labs/spayd-kmp"
+        scm.fromGithub("step-up-labs", "spayd-kmp")
+        license(MIT)
+        developer("Radovan Paška", "radovan@stepuplabs.io", "Step Up Labs", "https://stepuplabs.io")
+        developer("David Vávra", "david@stepuplabs.io", "Step Up Labs", "https://stepuplabs.io")
+    }
+    centralPortalSpec {
+        signing.key = secret("MAVEN_CENTRAL_SIGNING_KEY")
+        signing.password = secret("MAVEN_CENTRAL_SIGNING_PASSPHRASE")
+        auth.user = secret("MAVEN_CENTRAL_UPLOAD_USERNAME")
+        auth.password = secret("MAVEN_CENTRAL_UPLOAD_PASSWORD")
+        allowMavenCentralSync = false
     }
 }
