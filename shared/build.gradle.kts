@@ -58,6 +58,9 @@ android {
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
+    publishing {
+        singleVariant("release")
+    }
 }
 
 skie {
