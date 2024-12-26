@@ -76,7 +76,7 @@ deployer {
         }
     }
     projectInfo {
-        artifactId = "spaydkmp"
+        artifactId = "spayd-kmp"
         description = "Kotlin Multiplatform library for generating Short Payment Descriptor (SPAYD)."
         url = "https://github.com/step-up-labs/spayd-kmp"
         scm.fromGithub("step-up-labs", "spayd-kmp")

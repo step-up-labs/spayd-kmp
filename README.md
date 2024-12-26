@@ -8,7 +8,7 @@
 
 Add this to your dependencies:
 
-`implementation 'io.stepuplabs.spaydkmp:spaydkmp-android:<latest-version>'`
+`implementation 'io.stepuplabs.spaydkmp:spayd-kmp-android:<latest-version>'`
 
 ### iOS
 
