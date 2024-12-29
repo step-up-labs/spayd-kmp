@@ -1,5 +1,6 @@
 package io.stepuplabs.spaydkmp.common
 
+import com.ionspin.kotlin.bignum.decimal.BigDecimal
 import io.stepuplabs.spaydkmp.exception.ValidationException
 import kotlinx.datetime.LocalDate
 import kotlin.math.log10
@@ -87,6 +88,23 @@ internal class Validator {
                 }
 
                 // length for double doesn't make much sense
+            }
+
+            BigDecimal::class -> {
+                val typedValue = value as BigDecimal
+
+                key.minValue?.let {
+                    if (typedValue < it) {
+                        throw ValidationException("$key is lower than allowed minimum value ($it)")
+                    }
+                }
+                key.maxValue?.let {
+                    if (typedValue > it) {
+                        throw ValidationException("$key is higher than allowed maximum value ($it)")
+                    }
+                }
+
+                // length for big decimal doesn't make much sense
             }
 
             String::class -> {

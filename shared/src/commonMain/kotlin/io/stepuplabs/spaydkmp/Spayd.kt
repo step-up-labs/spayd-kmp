@@ -1,5 +1,6 @@
 package io.stepuplabs.spaydkmp
 
+import com.ionspin.kotlin.bignum.decimal.BigDecimal
 import io.stepuplabs.spaydkmp.common.Account
 import io.stepuplabs.spaydkmp.common.AccountList
 import io.stepuplabs.spaydkmp.common.Key
@@ -28,7 +29,7 @@ class Spayd(
         account: Account,
         alternateAccounts: AccountList? = null,
         currency: String? = null,
-        amount: Double? = null,
+        amount: BigDecimal? = null,
         date: LocalDate? = null,
         senderReference: Int? = null,
         recipientName: String? = null,
@@ -152,6 +153,15 @@ class Spayd(
         }
 
         return "$parameter:$entries"
+    }
+
+    // Get parameter:value key for SPAYD
+    private fun getEntry(parameter: String, value: BigDecimal?): String? {
+        if (value == null) {
+            return null
+        }
+
+        return "$parameter:${value.toStringExpanded()}"
     }
 
     // Get parameter:value key for SPAYD
