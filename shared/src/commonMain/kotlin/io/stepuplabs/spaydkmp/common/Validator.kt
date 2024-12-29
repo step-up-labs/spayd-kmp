@@ -20,7 +20,7 @@ internal class Validator {
 
         when (key.type) {
             LocalDate::class -> return true
-            Account::class -> return true
+            BankAccount::class -> return true
             NotificationType::class -> return true
 
             Int::class -> {
@@ -124,18 +124,18 @@ internal class Validator {
                 }
             }
 
-            AccountList::class -> {
-                val typedValue = value as AccountList
+            BankAccountList::class -> {
+                val typedValue = value as BankAccountList
 
                 // min/max value for list doesn't make much sense
 
                 key.minLength?.let {
-                    if (typedValue.accounts.count() < it) {
+                    if (typedValue.bankAccounts.count() < it) {
                         throw ValidationException("$key is shorter than allowed minimum length ($it)")
                     }
                 }
                 key.maxLength?.let {
-                    if (typedValue.accounts.count() > it) {
+                    if (typedValue.bankAccounts.count() > it) {
                         throw ValidationException("$key is longer than allowed maximum length ($it)")
                     }
                 }

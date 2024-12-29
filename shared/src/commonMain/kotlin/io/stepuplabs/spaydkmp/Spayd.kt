@@ -1,13 +1,12 @@
 package io.stepuplabs.spaydkmp
 
 import com.ionspin.kotlin.bignum.decimal.BigDecimal
-import io.stepuplabs.spaydkmp.common.Account
-import io.stepuplabs.spaydkmp.common.AccountList
+import io.stepuplabs.spaydkmp.common.BankAccount
+import io.stepuplabs.spaydkmp.common.BankAccountList
 import io.stepuplabs.spaydkmp.common.Key
 import io.stepuplabs.spaydkmp.common.NotificationType
 import io.stepuplabs.spaydkmp.common.Validator
 import io.stepuplabs.spaydkmp.exception.*
-import kotlin.math.log10
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.format
 import net.thauvin.erik.urlencoder.UrlEncoderUtil
@@ -26,42 +25,41 @@ class Spayd(
 
     // Convenience constructor that accepts all values in form of named parameters
     constructor(
-        account: Account,
-        alternateAccounts: AccountList? = null,
-        currency: String? = null,
+        bankAccount: BankAccount,
+        alternativeBankAccounts: BankAccountList? = null,
+        currencyCode: String? = null,
         amount: BigDecimal? = null,
-        date: LocalDate? = null,
-        senderReference: Int? = null,
+        dueDate: LocalDate? = null,
+        referenceForRecipient: Int? = null,
         recipientName: String? = null,
         paymentType: String? = null,
         message: String? = null,
         notificationType: NotificationType? = null,
         notificationAddress: String? = null,
-        repeat: Int? = null,
+        daysToRepeatIfUnsuccessfull: Int? = null,
         variableSymbol: Long? = null,
         specificSymbol: Long? = null,
         constantSymbol: Long? = null,
-        identifier: String? = null,
+        referenceForSender: String? = null,
         url: String? = null,
     ): this(
         parameters = arrayOf(
-            Key.ACCOUNT to account,
-            alternateAccounts?.let { Key.ALTERNATE_ACCOUNTS to it },
-            alternateAccounts?.let { Key.ALTERNATE_ACCOUNTS to it },
-            currency?.let { Key.CURRENCY to it },
+            Key.BANK_ACCOUNT to bankAccount,
+            alternativeBankAccounts?.let { Key.ALTERNATIVE_BANK_ACCOUNTS to it },
+            currencyCode?.let { Key.CURRENCY_CODE to it },
             amount?.let { Key.AMOUNT to it },
-            date?.let { Key.DATE to it },
-            senderReference?.let { Key.SENDER_REFERENCE to it },
+            dueDate?.let { Key.DUE_DATE to it },
+            referenceForRecipient?.let { Key.REFERENCE_FOR_RECIPIENT to it },
             recipientName?.let { Key.RECIPIENT_NAME to it },
             paymentType?.let { Key.PAYMENT_TYPE to it },
             message?.let { Key.MESSAGE to it },
             notificationType?.let { Key.NOTIFY_TYPE to it },
             notificationAddress?.let { Key.NOTIFY_ADDRESS to it },
-            repeat?.let { Key.REPEAT to it },
+            daysToRepeatIfUnsuccessfull?.let { Key.DAYS_TO_REPEAT_IF_UNSUCCESSFUL to it },
             variableSymbol?.let { Key.VARIABLE_SYMBOL to it },
             specificSymbol?.let { Key.SPECIFIC_SYMBOL to it },
             constantSymbol?.let { Key.CONSTANT_SYMBOL to it },
-            identifier?.let { Key.IDENTIFIER to it },
+            referenceForSender?.let { Key.REFERENCE_FOR_SENDER to it },
             url?.let { Key.URL to it },
         )
     )
@@ -78,7 +76,7 @@ class Spayd(
 
         // payment parameters
         for (parameter in parameters.filterNotNull()) {
-            getEntry(parameter.first.key, parameter.second)?.let { parts.add(it) }
+            getEntry(parameter.first, parameter.second)?.let { parts.add(it) }
         }
 
         // merge into one string
@@ -110,7 +108,7 @@ class Spayd(
             validator.validate(key = parameter.first, value = parameter.second)
 
             when (parameter.first) {
-                Key.ACCOUNT -> hasAccount = true
+                Key.BANK_ACCOUNT -> hasAccount = true
                 Key.NOTIFY_TYPE -> hasNotificationType = true
                 Key.NOTIFY_ADDRESS -> hasNotificationAddress = true
                 else -> continue
@@ -127,12 +125,18 @@ class Spayd(
     }
 
     // Get parameter:value key for SPAYD
-    private fun getEntry(parameter: String, value: Any?): String? {
+    private fun getEntry(parameter: Key, value: Any?): String? {
         if (value == null) {
             return null
         }
 
-        return "$parameter:$value"
+        val valStr = when (parameter.type) {
+            LocalDate::class -> (value as LocalDate).format(LocalDate.Formats.ISO_BASIC)
+            BigDecimal::class -> (value as BigDecimal).toStringExpanded()
+            else -> "$value"
+        }
+
+        return "${parameter.key}:$valStr"
     }
 
     // Get parameter:value key for SPAYD
@@ -153,24 +157,6 @@ class Spayd(
         }
 
         return "$parameter:$entries"
-    }
-
-    // Get parameter:value key for SPAYD
-    private fun getEntry(parameter: String, value: BigDecimal?): String? {
-        if (value == null) {
-            return null
-        }
-
-        return "$parameter:${value.toStringExpanded()}"
-    }
-
-    // Get parameter:value key for SPAYD
-    private fun getEntry(parameter: String, date: LocalDate?): String? {
-        if (date == null) {
-            return null
-        }
-
-        return "$parameter:${date.format(LocalDate.Formats.ISO_BASIC)}"
     }
 
     // Sanitize values for SPAYD
