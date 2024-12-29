@@ -29,7 +29,7 @@ Create `Spayd` instance. The only mandatory parameter is `account`. Example:
 ```kotlin
 val spayd = Spayd(
     bankAccount = BankAccount(iban = "CZ7603000000000076327632"),
-    amount = 500.00,
+    amount = BigDecimal.fromFloat(500.00F),
     currencyCode = "CZK",
     message = "Clovek v tisni",
 )
@@ -47,7 +47,7 @@ This will validate data and possibly throw `ValidationException` with a short me
 ```kotlin
 val spayd = Spayd(
     Key.BANK_ACCOUNT to BankAccount(iban = "CZ7603000000000076327632"),
-    Key.AMOUNT to 500.00,
+    Key.AMOUNT to BigDecimal.fromFloat(500.00F),
     Key.CURRENCY_CODE to "CZK",
     Key.MESSAGE to "Clovek v tisni",
 )
@@ -58,7 +58,7 @@ or
 ```kotlin
 val parameters: Map<Key, Any> = mapOf(
     Key.BANK_ACCOUNT to BankAccount(iban = "CZ7603000000000076327632"),
-    Key.AMOUNT to 500.00,
+    Key.AMOUNT to BigDecimal.fromFloat(500.00F),
     Key.CURRENCY_CODE to "CZK",
     Key.MESSAGE to "Clovek v tisni",
 )
