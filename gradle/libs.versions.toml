@@ -8,7 +8,7 @@ kotlinx-datetime = "0.6.1"
 ktor = "3.0.0"
 okio = "3.9.1"
 skie = "0.9.3"
-urlencoder = "1.4.0"
+urlencoder = "1.6.0"
 maven-deployer = "0.16.0"
 
 [plugins]
