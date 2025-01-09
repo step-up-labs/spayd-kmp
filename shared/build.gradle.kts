@@ -88,8 +88,7 @@ skie {
 
 deployer {
     content {
-        androidComponents("release") {
-            kotlinSources()
+        kotlinComponents {
             emptyDocs()
         }
     }
