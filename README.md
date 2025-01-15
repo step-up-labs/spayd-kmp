@@ -58,7 +58,7 @@ or
 ```kotlin
 val parameters: Map<Key, Any> = mapOf(
     Key.BANK_ACCOUNT to BankAccount(iban = "CZ7603000000000076327632"),
-    Key.AMOUNT to BigDecimal.fromFloat(500.00F),
+    Key.AMOUNT to "500.00".toBigDecimal(),
     Key.CURRENCY_CODE to "CZK",
     Key.MESSAGE to "Clovek v tisni",
 )
