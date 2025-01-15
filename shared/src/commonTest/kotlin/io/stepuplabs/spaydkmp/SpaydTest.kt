@@ -6,6 +6,7 @@ import io.stepuplabs.spaydkmp.common.BankAccount
 import io.stepuplabs.spaydkmp.common.BankAccountList
 import io.stepuplabs.spaydkmp.common.Key
 import io.stepuplabs.spaydkmp.common.NotificationType
+import io.stepuplabs.spaydkmp.common.PaymentType
 import io.stepuplabs.spaydkmp.exception.ValidationException
 import kotlinx.datetime.LocalDate
 import kotlin.test.Test
@@ -35,7 +36,7 @@ internal class SpaydTest {
     @Test
     fun fullParameterSetPrimaryConstructor() {
         // copy of what's mentioned in README.md
-        val expected = "SPD*1.0*DT:20251211*CC:CZK*AM:25.12*ACC:CZ7603000000000076327632*ALT-ACC:CZ7603000000000076327632,CZ7603000000000076327632*RF:1000001*RN:CLOVEK V TISNI*PT:TYP*MSG:DONATION*NT:P*NTA:+420321654987*X-PER:3*X-VS:9*X-SS:9*X-KS:9*X-ID:ID*X-URL:HTTPS://STEPUPLABS.IO"
+        val expected = "SPD*1.0*DT:20251211*CC:CZK*AM:25.12*ACC:CZ7603000000000076327632*ALT-ACC:CZ7603000000000076327632,CZ7603000000000076327632*RF:1000001*RN:CLOVEK V TISNI*PT:IP*MSG:DONATION*NT:P*NTA:+420321654987*X-PER:3*X-VS:9*X-SS:9*X-KS:9*X-ID:ID*X-URL:HTTPS://STEPUPLABS.IO"
 
         val altBankAccounts: List<BankAccount> = listOf(
             BankAccount("CZ7603000000000076327632"),
@@ -50,7 +51,7 @@ internal class SpaydTest {
             Key.ALTERNATIVE_BANK_ACCOUNTS to BankAccountList(altBankAccounts),
             Key.REFERENCE_FOR_RECIPIENT to 1000001,
             Key.RECIPIENT_NAME to "CLOVEK V TISNI",
-            Key.PAYMENT_TYPE to "TYP",
+            Key.PAYMENT_TYPE to PaymentType.IMMEDIATE_PAYMENT,
             Key.MESSAGE to "DONATION",
             Key.NOTIFY_TYPE to NotificationType.PHONE,
             Key.NOTIFY_ADDRESS to "+420321654987",
@@ -69,7 +70,7 @@ internal class SpaydTest {
     @Test
     fun fullParameterSetSecondaryConstructor() {
         // copy of what's mentioned in README.md
-        val expected = "SPD*1.0*ACC:CZ7603000000000076327632*ALT-ACC:CZ7603000000000076327632,CZ7603000000000076327632*CC:CZK*AM:25.12*DT:20251211*RF:1000001*RN:CLOVEK V TISNI*PT:TYP*MSG:DONATION*NT:P*NTA:+420321654987*X-PER:3*X-VS:9*X-SS:9*X-KS:9*X-ID:ID*X-URL:HTTPS://STEPUPLABS.IO"
+        val expected = "SPD*1.0*ACC:CZ7603000000000076327632*ALT-ACC:CZ7603000000000076327632,CZ7603000000000076327632*CC:CZK*AM:25.12*DT:20251211*RF:1000001*RN:CLOVEK V TISNI*PT:IP*MSG:DONATION*NT:P*NTA:+420321654987*X-PER:3*X-VS:9*X-SS:9*X-KS:9*X-ID:ID*X-URL:HTTPS://STEPUPLABS.IO"
 
         val altBankAccounts: List<BankAccount> = listOf(
             BankAccount("CZ7603000000000076327632"),
@@ -83,7 +84,7 @@ internal class SpaydTest {
             dueDate = LocalDate(2025, 12, 11),
             referenceForRecipient = 1000001,
             recipientName = "CLOVEK V TISNI",
-            paymentType = "TYP",
+            paymentType = PaymentType.IMMEDIATE_PAYMENT,
             message = "DONATION",
             notificationType = NotificationType.PHONE,
             notificationAddress = "+420321654987",
@@ -93,6 +94,20 @@ internal class SpaydTest {
             constantSymbol = 9L,
             referenceForSender = "ID",
             url = "https://stepuplabs.io",
+        )
+        val actual = spayd.toString()
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun notAllowedCharactersInMessage() {
+        // copy of what's mentioned in README.md
+        val expected = "SPD*1.0*ACC:CZ7603000000000076327632*MSG:PLI LUOUK K, VOLE"
+
+        val spayd = Spayd(
+            Key.BANK_ACCOUNT to BankAccount("CZ7603000000000076327632"),
+            Key.MESSAGE to "Příliš žluťoučký kůň, vole",
         )
         val actual = spayd.toString()
 

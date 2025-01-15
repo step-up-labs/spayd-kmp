@@ -5,6 +5,7 @@ import io.stepuplabs.spaydkmp.common.BankAccount
 import io.stepuplabs.spaydkmp.common.BankAccountList
 import io.stepuplabs.spaydkmp.common.Key
 import io.stepuplabs.spaydkmp.common.NotificationType
+import io.stepuplabs.spaydkmp.common.PaymentType
 import io.stepuplabs.spaydkmp.common.Validator
 import io.stepuplabs.spaydkmp.exception.*
 import kotlinx.datetime.LocalDate
@@ -32,7 +33,7 @@ class Spayd(
         dueDate: LocalDate? = null,
         referenceForRecipient: Int? = null,
         recipientName: String? = null,
-        paymentType: String? = null,
+        paymentType: PaymentType? = null,
         message: String? = null,
         notificationType: NotificationType? = null,
         notificationAddress: String? = null,
@@ -133,7 +134,7 @@ class Spayd(
         val valStr = when (parameter.type) {
             LocalDate::class -> (value as LocalDate).format(LocalDate.Formats.ISO_BASIC)
             BigDecimal::class -> (value as BigDecimal).toStringExpanded()
-            else -> "$value"
+            else -> sanitize("$value")
         }
 
         return "${parameter.key}:$valStr"
@@ -152,7 +153,7 @@ class Spayd(
             }
 
             entries.append(
-                escape(value.toString()),
+                sanitize(value.toString()),
             )
         }
 
@@ -160,27 +161,8 @@ class Spayd(
     }
 
     // Sanitize values for SPAYD
-    private fun escape(value: String): String {
-        val escapedValue = StringBuilder()
-
-        for (char in value) {
-            if (char.code > 127) {
-                escapedValue.append(UrlEncoderUtil.encode(char.toString()))
-            } else {
-                if (char.compareTo('*') == 0) { // spayd value separator
-                    escapedValue.append("%2A")
-                } else if (char.compareTo('+') == 0) {
-                    escapedValue.append("%2B")
-                } else if (char.compareTo('%') == 0) {
-                    escapedValue.append("%25")
-                } else {
-                    escapedValue.append(char)
-                }
-            }
-        }
-
-        return escapedValue.toString()
-    }
+    private fun sanitize(value: String): String = Regex("[^A-Za-z0-9 @$%+\\-/:.,]")
+        .replace(value, "")
 
     companion object {
         const val MIME_TYPE: String = "application/x-shortpaymentdescriptor"

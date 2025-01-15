@@ -115,18 +115,6 @@ internal class ValidatorTest {
     }
 
     @Test
-    fun paymentType() {
-        assertEquals(
-            validator.validate(value = "PTY", Key.PAYMENT_TYPE),
-            true,
-        )
-
-        assertFailsWith(ValidationException::class) {
-            validator.validate(value = "Payment TYpe", Key.PAYMENT_TYPE) // too long
-        }
-    }
-
-    @Test
     fun message() {
         assertEquals(
             validator.validate(value = "fairly long message that still fits", Key.MESSAGE),

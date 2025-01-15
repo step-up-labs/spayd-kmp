@@ -23,7 +23,7 @@ enum class Key(
     ALTERNATIVE_BANK_ACCOUNTS(key = "ALT-ACC", type = BankAccountList::class, maxLength = 2),
     REFERENCE_FOR_RECIPIENT(key = "RF", type = Int::class, maxLength = 16),
     RECIPIENT_NAME(key = "RN", type = String::class, maxLength = 35),
-    PAYMENT_TYPE(key = "PT", type = String::class, maxLength = 3),
+    PAYMENT_TYPE(key = "PT", type = PaymentType::class, maxLength = 3),
     MESSAGE(key = "MSG", type = String::class, maxLength = 60),
     NOTIFY_TYPE(key = "NT", type = NotificationType::class),
     NOTIFY_ADDRESS(key = "NTA", type = String::class, maxLength = 320),

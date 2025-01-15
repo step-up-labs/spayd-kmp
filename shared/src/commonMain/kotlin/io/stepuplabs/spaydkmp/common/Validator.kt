@@ -22,6 +22,7 @@ internal class Validator {
             LocalDate::class -> return true
             BankAccount::class -> return true
             NotificationType::class -> return true
+            PaymentType::class -> return true
 
             Int::class -> {
                 val typedValue = value as Int
