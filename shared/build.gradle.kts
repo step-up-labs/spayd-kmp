@@ -35,7 +35,8 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlinx.datetime)
+            api(libs.bignum)
+            api(libs.kotlinx.datetime)
             implementation(libs.ktor.http)
             implementation(libs.okio)
             implementation(libs.urlencoder)

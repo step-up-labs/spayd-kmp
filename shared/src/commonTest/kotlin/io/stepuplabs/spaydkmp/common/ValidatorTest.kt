@@ -1,5 +1,6 @@
 package io.stepuplabs.spaydkmp.common
 
+import com.ionspin.kotlin.bignum.decimal.toBigDecimal
 import io.stepuplabs.spaydkmp.exception.ValidationException
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -11,35 +12,35 @@ internal class ValidatorTest {
     @Test
     fun type() {
         assertEquals(
-            validator.validate(value = Account(iban = "XXX"), Key.ACCOUNT),
+            validator.validate(value = BankAccount(iban = "XXX"), Key.BANK_ACCOUNT),
             true,
         )
 
         assertFailsWith(ValidationException::class) {
-            validator.validate(value = "IBAN", Key.ACCOUNT) // too short
+            validator.validate(value = "IBAN", Key.BANK_ACCOUNT) // too short
         }
     }
 
     @Test
     fun currency() {
         assertEquals(
-            validator.validate(value = "CZE", Key.CURRENCY),
+            validator.validate(value = "CZE", Key.CURRENCY_CODE),
             true,
         )
 
         assertFailsWith(ValidationException::class) {
-            validator.validate(value = "CZ", Key.CURRENCY) // too short
+            validator.validate(value = "CZ", Key.CURRENCY_CODE) // too short
         }
 
         assertFailsWith(ValidationException::class) {
-            validator.validate(value = "CZECH", Key.CURRENCY) // too long
+            validator.validate(value = "CZECH", Key.CURRENCY_CODE) // too long
         }
     }
 
     @Test
     fun amount() {
         assertEquals(
-            validator.validate(value = 500.0, Key.AMOUNT),
+            validator.validate(value = "500.00".toBigDecimal(), Key.AMOUNT),
             true,
         )
 
@@ -56,32 +57,32 @@ internal class ValidatorTest {
     fun alternateAccounts() {
         assertEquals(
             validator.validate(
-                value = AccountList(accounts = listOf()),
-                Key.ALTERNATE_ACCOUNTS
+                value = BankAccountList(bankAccounts = listOf()),
+                Key.ALTERNATIVE_BANK_ACCOUNTS
             ),
             true,
         )
 
         assertEquals(
             validator.validate(
-                value = AccountList(
-                    accounts = listOf(Account(iban = "XXX"), Account(iban = "YYY")),
+                value = BankAccountList(
+                    bankAccounts = listOf(BankAccount(iban = "XXX"), BankAccount(iban = "YYY")),
                 ),
-                Key.ALTERNATE_ACCOUNTS
+                Key.ALTERNATIVE_BANK_ACCOUNTS
             ),
             true,
         )
 
         assertFailsWith(ValidationException::class) {
             validator.validate(
-                value = AccountList(
-                    accounts = listOf(
-                        Account(iban = "XXX"),
-                        Account(iban = "YYY"),
-                        Account(iban = "ZZZZ"),
+                value = BankAccountList(
+                    bankAccounts = listOf(
+                        BankAccount(iban = "XXX"),
+                        BankAccount(iban = "YYY"),
+                        BankAccount(iban = "ZZZZ"),
                     ),
                 ),
-                Key.ALTERNATE_ACCOUNTS
+                Key.ALTERNATIVE_BANK_ACCOUNTS
             )
         }
     }
@@ -89,12 +90,12 @@ internal class ValidatorTest {
     @Test
     fun senderReference() {
         assertEquals(
-            validator.validate(value = 123456, Key.SENDER_REFERENCE),
+            validator.validate(value = 123456, Key.REFERENCE_FOR_RECIPIENT),
             true,
         )
 
         assertFailsWith(ValidationException::class) {
-            validator.validate(value = 12345678901234567, Key.SENDER_REFERENCE) // too long
+            validator.validate(value = 12345678901234567, Key.REFERENCE_FOR_RECIPIENT) // too long
         }
     }
 
@@ -110,18 +111,6 @@ internal class ValidatorTest {
                 value = "recipient name, recipient name, recipient name, recipient name",
                 Key.RECIPIENT_NAME,
             )
-        }
-    }
-
-    @Test
-    fun paymentType() {
-        assertEquals(
-            validator.validate(value = "PTY", Key.PAYMENT_TYPE),
-            true,
-        )
-
-        assertFailsWith(ValidationException::class) {
-            validator.validate(value = "Payment TYpe", Key.PAYMENT_TYPE) // too long
         }
     }
 
@@ -158,16 +147,16 @@ internal class ValidatorTest {
     @Test
     fun repeat() {
         assertEquals(
-            validator.validate(value = 3, Key.REPEAT),
+            validator.validate(value = 3, Key.DAYS_TO_REPEAT_IF_UNSUCCESSFUL),
             true,
         )
 
         assertFailsWith(ValidationException::class) {
-            validator.validate(value = -1, Key.REPEAT) // too low
+            validator.validate(value = -1, Key.DAYS_TO_REPEAT_IF_UNSUCCESSFUL) // too low
         }
 
         assertFailsWith(ValidationException::class) {
-            validator.validate(value = 33, Key.REPEAT) // too high
+            validator.validate(value = 33, Key.DAYS_TO_REPEAT_IF_UNSUCCESSFUL) // too high
         }
     }
 
@@ -210,12 +199,12 @@ internal class ValidatorTest {
     @Test
     fun identifier() {
         assertEquals(
-            validator.validate(value = "IDENTIFIER", Key.IDENTIFIER),
+            validator.validate(value = "IDENTIFIER", Key.REFERENCE_FOR_SENDER),
             true,
         )
 
         assertFailsWith(ValidationException::class) {
-            validator.validate(value = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", Key.IDENTIFIER) // too long
+            validator.validate(value = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", Key.REFERENCE_FOR_SENDER) // too long
         }
     }
 

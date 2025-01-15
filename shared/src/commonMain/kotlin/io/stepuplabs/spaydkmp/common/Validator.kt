@@ -1,5 +1,6 @@
 package io.stepuplabs.spaydkmp.common
 
+import com.ionspin.kotlin.bignum.decimal.BigDecimal
 import io.stepuplabs.spaydkmp.exception.ValidationException
 import kotlinx.datetime.LocalDate
 import kotlin.math.log10
@@ -19,8 +20,9 @@ internal class Validator {
 
         when (key.type) {
             LocalDate::class -> return true
-            Account::class -> return true
+            BankAccount::class -> return true
             NotificationType::class -> return true
+            PaymentType::class -> return true
 
             Int::class -> {
                 val typedValue = value as Int
@@ -89,6 +91,23 @@ internal class Validator {
                 // length for double doesn't make much sense
             }
 
+            BigDecimal::class -> {
+                val typedValue = value as BigDecimal
+
+                key.minValue?.let {
+                    if (typedValue < it) {
+                        throw ValidationException("$key is lower than allowed minimum value ($it)")
+                    }
+                }
+                key.maxValue?.let {
+                    if (typedValue > it) {
+                        throw ValidationException("$key is higher than allowed maximum value ($it)")
+                    }
+                }
+
+                // length for big decimal doesn't make much sense
+            }
+
             String::class -> {
                 val typedValue = value as String
 
@@ -106,18 +125,18 @@ internal class Validator {
                 }
             }
 
-            AccountList::class -> {
-                val typedValue = value as AccountList
+            BankAccountList::class -> {
+                val typedValue = value as BankAccountList
 
                 // min/max value for list doesn't make much sense
 
                 key.minLength?.let {
-                    if (typedValue.accounts.count() < it) {
+                    if (typedValue.bankAccounts.count() < it) {
                         throw ValidationException("$key is shorter than allowed minimum length ($it)")
                     }
                 }
                 key.maxLength?.let {
-                    if (typedValue.accounts.count() > it) {
+                    if (typedValue.bankAccounts.count() > it) {
                         throw ValidationException("$key is longer than allowed maximum length ($it)")
                     }
                 }

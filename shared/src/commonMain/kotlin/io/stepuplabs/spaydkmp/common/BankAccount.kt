@@ -3,7 +3,7 @@ package io.stepuplabs.spaydkmp.common
 /*
 Account representation
  */
-data class Account(
+data class BankAccount(
     val iban: String,
     val bic: String? = null,
 ) {

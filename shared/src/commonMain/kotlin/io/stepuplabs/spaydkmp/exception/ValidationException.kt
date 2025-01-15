@@ -5,4 +5,4 @@ Exception that represents failed parameter validation effort
  */
 class ValidationException(
     override val message: String?,
-): Exception()
+): Throwable()

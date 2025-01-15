@@ -2,6 +2,7 @@
 agp = "8.2.2"
 android-compileSdk = "34"
 android-minSdk = "23"
+bignum = "0.3.10"
 compose-plugin = "1.6.11"
 kotlin = "2.0.21"
 kotlinx-datetime = "0.6.1"
@@ -21,6 +22,7 @@ skie = { id = "co.touchlab.skie", version.ref = "skie" }
 mavenDeployer = { id = "io.deepmedia.tools.deployer", version.ref = "maven-deployer"}
 
 [libraries]
+bignum = { module = "com.ionspin.kotlin:bignum", version.ref = "bignum" }
 kotlin_junit = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin_test = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
 kotlin_test_annotations = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
