@@ -1,6 +1,7 @@
 package io.stepuplabs.spaydkmp
 
 import com.ionspin.kotlin.bignum.decimal.BigDecimal
+import com.ionspin.kotlin.bignum.decimal.toBigDecimal
 import io.stepuplabs.spaydkmp.common.BankAccount
 import io.stepuplabs.spaydkmp.common.BankAccountList
 import io.stepuplabs.spaydkmp.common.Key
@@ -44,7 +45,7 @@ internal class SpaydTest {
         val spayd = Spayd(
             Key.DUE_DATE to LocalDate(2025, 12, 11),
             Key.CURRENCY_CODE to "CZK",
-            Key.AMOUNT to BigDecimal.fromFloat(25.12F),
+            Key.AMOUNT to "25.12".toBigDecimal(),
             Key.BANK_ACCOUNT to BankAccount("CZ7603000000000076327632"),
             Key.ALTERNATIVE_BANK_ACCOUNTS to BankAccountList(altBankAccounts),
             Key.REFERENCE_FOR_RECIPIENT to 1000001,
@@ -78,7 +79,7 @@ internal class SpaydTest {
             bankAccount = BankAccount("CZ7603000000000076327632"),
             alternativeBankAccounts = BankAccountList(altBankAccounts),
             currencyCode = "CZK",
-            amount = BigDecimal.fromFloat(25.12F),
+            amount = "25.12".toBigDecimal(),
             dueDate = LocalDate(2025, 12, 11),
             referenceForRecipient = 1000001,
             recipientName = "CLOVEK V TISNI",

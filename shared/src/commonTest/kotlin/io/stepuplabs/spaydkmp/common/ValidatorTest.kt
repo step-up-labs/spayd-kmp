@@ -1,5 +1,6 @@
 package io.stepuplabs.spaydkmp.common
 
+import com.ionspin.kotlin.bignum.decimal.toBigDecimal
 import io.stepuplabs.spaydkmp.exception.ValidationException
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -39,7 +40,7 @@ internal class ValidatorTest {
     @Test
     fun amount() {
         assertEquals(
-            validator.validate(value = 500.0, Key.AMOUNT),
+            validator.validate(value = "500.00".toBigDecimal(), Key.AMOUNT),
             true,
         )
 
