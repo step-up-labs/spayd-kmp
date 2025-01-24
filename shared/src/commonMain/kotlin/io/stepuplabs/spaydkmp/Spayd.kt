@@ -1,6 +1,7 @@
 package io.stepuplabs.spaydkmp
 
 import com.ionspin.kotlin.bignum.decimal.BigDecimal
+import com.ionspin.kotlin.bignum.decimal.RoundingMode
 import io.stepuplabs.spaydkmp.common.BankAccount
 import io.stepuplabs.spaydkmp.common.BankAccountList
 import io.stepuplabs.spaydkmp.common.Key
@@ -10,7 +11,6 @@ import io.stepuplabs.spaydkmp.common.Validator
 import io.stepuplabs.spaydkmp.exception.*
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.format
-import net.thauvin.erik.urlencoder.UrlEncoderUtil
 
 /*
 Class that represents and generates SPAYD
@@ -20,7 +20,7 @@ class Spayd(
     private vararg val parameters: Pair<Key, Any>?
 ) {
     // Convenience constructor that accepts map of parameters
-    constructor(parameters: Map<Key, Any>): this(
+    constructor(parameters: Map<Key, Any>) : this(
         parameters = parameters.mapNotNull { it.key to it.value }.toTypedArray()
     )
 
@@ -43,7 +43,7 @@ class Spayd(
         constantSymbol: Long? = null,
         referenceForSender: String? = null,
         url: String? = null,
-    ): this(
+    ) : this(
         parameters = arrayOf(
             Key.BANK_ACCOUNT to bankAccount,
             alternativeBankAccounts?.let { Key.ALTERNATIVE_BANK_ACCOUNTS to it },
@@ -133,7 +133,9 @@ class Spayd(
 
         val valStr = when (parameter.type) {
             LocalDate::class -> (value as LocalDate).format(LocalDate.Formats.ISO_BASIC)
-            BigDecimal::class -> (value as BigDecimal).toStringExpanded()
+            BigDecimal::class -> (value as BigDecimal)
+                .roundToDigitPositionAfterDecimalPoint(2, RoundingMode.ROUND_HALF_CEILING)
+                .toStringExpanded()
             else -> sanitize("$value")
         }
 

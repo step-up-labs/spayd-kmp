@@ -113,4 +113,30 @@ internal class SpaydTest {
 
         assertEquals(expected, actual)
     }
+
+    @Test
+    fun roundingAmountToTwoDecimalsDown() {
+        val expected = "SPD*1.0*ACC:CZ7603000000000076327632*AM:20.23"
+
+        val spayd = Spayd(
+            Key.BANK_ACCOUNT to BankAccount("CZ7603000000000076327632"),
+            Key.AMOUNT to "20.234".toBigDecimal()
+        )
+        val actual = spayd.toString()
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun roundingAmountToTwoDecimalsUp() {
+        val expected = "SPD*1.0*ACC:CZ7603000000000076327632*AM:20.24"
+
+        val spayd = Spayd(
+            Key.BANK_ACCOUNT to BankAccount("CZ7603000000000076327632"),
+            Key.AMOUNT to "20.235".toBigDecimal()
+        )
+        val actual = spayd.toString()
+
+        assertEquals(expected, actual)
+    }
 }
