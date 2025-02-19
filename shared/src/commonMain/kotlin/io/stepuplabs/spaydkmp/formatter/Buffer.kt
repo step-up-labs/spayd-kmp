@@ -27,16 +27,8 @@ abstract class Buffer internal constructor(capacity: Int) {
         this.capacity = limit
     }
 
-    fun capacity(): Int {
-        return capacity
-    }
-
     fun hasRemaining(): Boolean {
         return position < limit
-    }
-
-    fun limit(): Int {
-        return limit
     }
 
     fun limit(newLimit: Int): Buffer {
@@ -49,10 +41,6 @@ abstract class Buffer internal constructor(capacity: Int) {
             mark = UNSET_MARK
         }
         return this
-    }
-
-    fun position(): Int {
-        return position
     }
 
     fun position(newPosition: Int): Buffer {

@@ -21,7 +21,7 @@ class ParserStateMachine(
     val nextFormatToken: FormatToken
         get() {
             token = FormatToken()
-            token!!.formatStringStartIndex = format.position()
+            token!!.formatStringStartIndex = format.position
 
             while (true) {
                 if (EXIT_STATE != state) {
@@ -82,7 +82,7 @@ class ParserStateMachine(
         }
     private val formatString: String
         get() {
-            val end: Int = format.position()
+            val end: Int = format.position
             format.rewind()
             val formatString: String = format.subSequence(
                 token!!.formatStringStartIndex, end
@@ -108,7 +108,7 @@ class ParserStateMachine(
 
     private fun processStartConversionState() {
         if (currentChar.isDigit()) {
-            val position: Int = format.position() - 1
+            val position: Int = format.position - 1
             val number = parseInt(format)
             var nextChar = 0.toChar()
             if (format.hasRemaining()) {
@@ -130,7 +130,7 @@ class ParserStateMachine(
                 } else { // the digital sequence stands for the width.
                     state = WIDTH_STATE
                     // do not get the next char.
-                    format.position(format.position() - 1)
+                    format.position(format.position - 1)
                     token!!.width = number
                 }
             }
@@ -140,7 +140,7 @@ class ParserStateMachine(
             token!!.argIndex = FormatToken.LAST_ARGUMENT_INDEX
         } else {
             state = FLAGS_STATE
-            format.position(format.position() - 1)
+            format.position(format.position - 1)
         }
     }
 
@@ -154,7 +154,7 @@ class ParserStateMachine(
             state = PRECISION_STATE
         } else {
             state = CONVERSION_TYPE_STATE
-            format.position(format.position() - 1)
+            format.position(format.position - 1)
         }
     }
 
@@ -164,7 +164,7 @@ class ParserStateMachine(
         } else {
             state = CONVERSION_TYPE_STATE
             // do not get the next char.
-            format.position(format.position() - 1)
+            format.position(format.position - 1)
         }
     }
 
@@ -196,12 +196,12 @@ class ParserStateMachine(
     }
 
     private fun parseInt(buffer: CharArrayBuffer): Int {
-        val start: Int = buffer.position() - 1
-        var end: Int = buffer.limit()
+        val start: Int = buffer.position - 1
+        var end: Int = buffer.limit
 
         while (buffer.hasRemaining()) {
             if (!buffer.get().isDigit()) {
-                end = buffer.position() - 1
+                end = buffer.position - 1
                 break
             }
         }

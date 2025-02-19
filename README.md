@@ -4,11 +4,11 @@
 
 ## Integration
 
-### Android
+### Gradle (JVM, Android, KMP)
 
 Add this to your dependencies:
 
-`implementation 'io.stepuplabs.spaydkmp:spayd-kmp-android:<latest-version>'`
+`implementation 'io.stepuplabs.spaydkmp:spayd-kmp:<latest-version>'`
 
 ### iOS
 

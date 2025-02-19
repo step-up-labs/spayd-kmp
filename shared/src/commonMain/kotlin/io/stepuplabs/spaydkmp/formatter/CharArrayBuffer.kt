@@ -81,9 +81,9 @@ class CharArrayBuffer : Buffer {
     }
 
     private fun copy(other: CharArrayBuffer, markOfOther: Int): CharArrayBuffer {
-        val buf = CharArrayBuffer(other.capacity(), other.backingArray, other.offset)
-        buf.limit = other.limit()
-        buf.position = other.position()
+        val buf = CharArrayBuffer(other.capacity, other.backingArray, other.offset)
+        buf.limit = other.limit
+        buf.position = other.position
         buf.mark = markOfOther
 
         return buf
