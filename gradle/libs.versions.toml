@@ -10,7 +10,7 @@ ktor = "3.0.0"
 okio = "3.9.1"
 skie = "0.9.3"
 urlencoder = "1.4.0"
-maven-deployer = "0.16.0"
+maven-deployer = "0.17.0"
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
