@@ -163,8 +163,15 @@ class Spayd(
     }
 
     // Sanitize values for SPAYD
-    private fun sanitize(value: String): String = Regex("[^A-Za-z0-9 @$%+\\-/:.,]")
-        .replace(value, "")
+    private fun sanitize(value: String): String {
+        val latinized = StringBuilder()
+        for (char in value) {
+            latinized.append(CZECH_MAPPING[char] ?: char)
+        }
+
+        return Regex("[^A-Za-z0-9 @$%+\\-/:.,]")
+            .replace(latinized.toString(), "")
+    }
 
     companion object {
         const val MIME_TYPE: String = "application/x-shortpaymentdescriptor"
@@ -172,5 +179,23 @@ class Spayd(
 
         private const val HEADER_TYPE: String = "SPD"
         private const val HEADER_VERSION: String = "1.0"
+
+        private val CZECH_MAPPING = mapOf(
+            'Á' to 'A', 'á' to 'a',
+            'Č' to 'C', 'č' to 'c',
+            'Ď' to 'D', 'ď' to 'd',
+            'É' to 'E', 'é' to 'e',
+            'Ě' to 'E', 'ě' to 'e',
+            'Í' to 'I', 'í' to 'i',
+            'Ň' to 'N', 'ň' to 'n',
+            'Ó' to 'O', 'ó' to 'o',
+            'Ř' to 'R', 'ř' to 'r',
+            'Š' to 'S', 'š' to 's',
+            'Ť' to 'T', 'ť' to 't',
+            'Ú' to 'U', 'ú' to 'u',
+            'Ů' to 'U', 'ů' to 'u',
+            'Ý' to 'Y', 'ý' to 'y',
+            'Ž' to 'Z', 'ž' to 'z'
+        )
     }
 }

@@ -95,6 +95,7 @@ internal class SpaydTest {
             referenceForSender = "ID",
             url = "https://stepuplabs.io",
         )
+
         val actual = spayd.toString()
 
         assertEquals(expected, actual)
@@ -103,11 +104,11 @@ internal class SpaydTest {
     @Test
     fun notAllowedCharactersInMessage() {
         // copy of what's mentioned in README.md
-        val expected = "SPD*1.0*ACC:CZ7603000000000076327632*MSG:PLI LUOUK K, VOLE"
+        val expected = "SPD*1.0*ACC:CZ7603000000000076327632*MSG:PRILIS ZLUTOUCKY KUN, VOLE"
 
         val spayd = Spayd(
             Key.BANK_ACCOUNT to BankAccount("CZ7603000000000076327632"),
-            Key.MESSAGE to "Příliš žluťoučký kůň, vole",
+            Key.MESSAGE to "Příliš žluťoučký kůň, vole!",
         )
         val actual = spayd.toString()
 
