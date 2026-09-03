@@ -43,6 +43,28 @@ val spaydString = spayd.toString()
 
 This will validate data and possibly throw `ValidationException` with a short message describing the first problem it encountered.
 
+### Bank account creation and validation
+
+It's common that you have a bank account as plain string editable by users in your app. In this case use helper function:
+
+```kotlin
+BankAccountUtils.parse(bankAccountString)
+```
+
+to parse or validate bank account in Czech or IBAN format.
+
+You can also create/validate bank account from Czech bank account format like this:
+
+```kotlin
+BankAccountUtils.createFromCzechAccount(prefix, accountNumber, bankCode)
+```
+
+Lastly, you can validate IBAN string by calling:
+
+```kotlin
+BankAccountUtils.validateIban(ibanString)
+```
+
 ### Alternative constructors
 ```kotlin
 val spayd = Spayd(
